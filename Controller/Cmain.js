@@ -1,3 +1,4 @@
+
 const models = require('../models');
 
 // 메인 페이지 GET
@@ -20,6 +21,7 @@ exports.getSignup = (req, res) => {
     res.render('signup');
 }
 
+
 // 회원가입 페이지 아이디 체크 POST
 exports.postIdCheck = (req, res) => {
     let userId = req.body.userId;
@@ -35,3 +37,4 @@ exports.postIdCheck = (req, res) => {
         }
     })
 }
+
