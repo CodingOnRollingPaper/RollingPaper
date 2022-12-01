@@ -1,0 +1,29 @@
+{
+  "name": "rollingpaper",
+  "version": "1.0.0",
+  "description": "RollingPaper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingOnRollingPaper/RollingPaper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodingOnRollingPaper/RollingPaper/issues"
+  },
+  "homepage": "https://github.com/CodingOnRollingPaper/RollingPaper#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.26.0",
+    "sequelize-cli": "^6.5.2"
+  }
+}
