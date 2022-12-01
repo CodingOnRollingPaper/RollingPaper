@@ -10,9 +10,10 @@ router.get('/', controller.getMain);
 router.get('/login', controller.getLogin);
 // 로그인 페이지 로그인 POST
 router.post('/login', controller.postLogin);
-
 // 회원가입 페이지 렌더링 GET
 router.get('/signup', controller.getSignup);
+// 회원가입 페이지 아이디 체크 POST
+router.post('/signup/idCheck', controller.postIdCheck);
 
 
 
