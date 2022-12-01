@@ -21,5 +21,8 @@ let sequelize = new Sequelize(
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.User = require("./User")(sequelize, Sequelize);
+db.Post = require("./Post")(sequelize, Sequelize);
+
 
 module.exports = db;
