@@ -14,6 +14,9 @@ router.post("/login", controller.postLogin);
 // 회원가입 페이지 렌더링 GET
 router.get("/signup", controller.getSignup);
 
+// 회원가입 페이지 아이디 체크 POST
+router.post('/signup/idCheck', controller.postIdCheck);
+
 // 회원가입 페이지 회원가입 POST
 router.post("/signup", controller.postSignup);
 

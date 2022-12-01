@@ -59,3 +59,21 @@ exports.postSignup = (req, res) => {
       res.render("signup");
     });
 };
+
+
+// 회원가입 페이지 아이디 체크 POST
+exports.postIdCheck = (req, res) => {
+    let userId = req.body.userId;
+    models.User.findOne({
+        where : { userId : userId}
+    })
+    .then((db_result) => {
+        if(db_result === null) {
+            res.send({ idCheck: '성공'});
+        }
+        else {
+            res.send({ idCheck: '실패'});
+        }
+    })
+}
+
