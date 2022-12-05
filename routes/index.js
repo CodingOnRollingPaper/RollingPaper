@@ -15,12 +15,12 @@ router.post("/login", controller.postLogin);
 router.get("/signup", controller.getSignup);
 
 // 회원가입 페이지 아이디 체크 POST
-router.post('/signup/idCheck', controller.postIdCheck);
+router.post("/signup/idCheck", controller.postIdCheck);
 
 // 회원가입 페이지 회원가입 POST
 router.post("/signup", controller.postSignup);
 
-// 게시글 작성 페이지 GET
-router.get("/paper", controller.getPaper);
+// 게시글 작성 페이지 GET(임시)
+// router.get("/paper", controller.getPaper);
 
 module.exports = router;

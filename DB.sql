@@ -16,3 +16,17 @@ postId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 postContent VARCHAR(255)  NOT NULL,
 postPw VARCHAR(30) NOT NULL
 );
+
+SHOW databases;
+
+USE rolling_paper
+
+SHOW tables;
+
+DESC user;
+
+DESC post;
+
+SELECT * FROM user;
+
+SELECT * FROM post;
