@@ -27,8 +27,8 @@ exports.postLogin = (req, res) => {
     } else {
       req.session.user = {
         isLogin: true,
-        userId: req.body.Id,
-        userPw: req.body.Pw,
+        userId: req.body.userId,
+        userPw: req.body.userPw,
         userName: result.userName,
       };
       console.log(req.session.user);
@@ -60,20 +60,16 @@ exports.postSignup = (req, res) => {
     });
 };
 
-
 // 회원가입 페이지 아이디 체크 POST
 exports.postIdCheck = (req, res) => {
-    let userId = req.body.userId;
-    models.User.findOne({
-        where : { userId : userId}
-    })
-    .then((db_result) => {
-        if(db_result === null) {
-            res.send({ idCheck: '성공'});
-        }
-        else {
-            res.send({ idCheck: '실패'});
-        }
-    })
-}
-
+  let userId = req.body.userId;
+  models.User.findOne({
+    where: { userId: userId },
+  }).then((db_result) => {
+    if (db_result === null) {
+      res.send({ idCheck: "성공" });
+    } else {
+      res.send({ idCheck: "실패" });
+    }
+  });
+};

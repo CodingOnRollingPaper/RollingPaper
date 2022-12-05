@@ -13,6 +13,7 @@ CREATE TABLE user (
 -- 게시글 테이블 생성 POST
 CREATE TABLE post (
 postId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+userId VARCHAR(30) NOT NULL, --foreing key
 postContent VARCHAR(255)  NOT NULL,
 postPw VARCHAR(30) NOT NULL
 );
@@ -30,3 +31,9 @@ DESC post;
 SELECT * FROM user;
 
 SELECT * FROM post;
+
+SELECT * FROM post WHERE userId = req.session.userId;
+
+-- 개인페이지에 남기는 Create
+INSERT INTO post (??, postContent, postPw) VALUES('??', '몰라몰라', '비밀번호');
+
