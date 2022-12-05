@@ -21,7 +21,7 @@ router.post("/signup/idCheck", controller.postIdCheck);
 router.post("/signup", controller.postSignup);
 
 // 게시글 작성 페이지 GET(임시)
-router.get("/paper/:userId", controller.getPaper);
+router.get("/paper/:userId/:userName", controller.getPaper);
 
 router.get("/login/:userId", controller.getLoginUserId);
 
