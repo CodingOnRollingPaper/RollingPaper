@@ -32,7 +32,7 @@ exports.postLogin = (req, res) => {
         userName: result.userName,
       };
       console.log(req.session.user);
-      res.redirect("/main");
+      res.redirect(`/login/${req.body.userId}`);
     }
   });
 };
@@ -71,5 +71,20 @@ exports.postIdCheck = (req, res) => {
     } else {
       res.send({ idCheck: "실패" });
     }
+  });
+};
+
+exports.getLoginUserId = (req, res) => {
+  console.log("세션 살아있어?", req.session.user);
+  res.render("loginUser", {
+    userId: req.params.userId,
+    userName: req.session.user.userName,
+  });
+};
+
+exports.getPaper = (req, res) => {
+  res.render("paper", {
+    userName: req.params.userName,
+    userId: req.params.userId,
   });
 };
