@@ -32,3 +32,9 @@ DESC post;
 SELECT * FROM user;
 
 SELECT * FROM post;
+
+SELECT * FROM post WHERE userId = req.session.userId;
+
+-- 개인페이지에 남기는 Create
+INSERT INTO post (??, postContent, postPw) VALUES('??', '몰라몰라', '비밀번호');
+
