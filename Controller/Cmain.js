@@ -83,5 +83,8 @@ exports.getLoginUserId = (req, res) => {
 };
 
 exports.getPaper = (req, res) => {
-  res.render("paper");
+  res.render("paper", {
+    userName: req.params.userName,
+    userId: req.params.userId,
+  });
 };
