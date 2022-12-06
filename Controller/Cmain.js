@@ -82,11 +82,32 @@ exports.getLoginUserId = (req, res) => {
   });
 };
 
+// exports.getPaper = (req, res) => {
+//   console.log("세션 아직도 살아있어?", req.session.user);
+//   res.render("paper", {
+//     userName: req.params.userName,
+//     userId: req.params.userId,
+//   });
+//   console.log(req.params.userId);
+// };
+
 exports.getPaper = (req, res) => {
-  res.render("paper", {
-    userName: req.params.userName,
-    userId: req.params.userId,
+  console.log("세션 아직도 살아있어?", req.session.user);
+  models.Post.findAll({
+    where: {
+      userId: req.params.userId,
+    },
+  }).then((db_result) => {
+    console.log("findAll >>", db_result[0].dataValues);
+    console.log("findAll >>", db_result[0].dataValues.postContent);
+
+    res.render("paper", {
+      userName: req.params.userName,
+      userId: req.params.userId,
+    });
   });
+
+  console.log(req.params.userId);
 };
 
 // 게시글 CREATE
@@ -100,5 +121,9 @@ exports.createPost = (req, res) => {
       postId: db_result.dataValues.postId,
       postContent: db_result.dataValues.postContent,
     });
+    console.log("결과", db_result);
+    console.log("세부결과", db_result.dataValues);
   });
+
+  console.log("여기임", req.body.userId);
 };
