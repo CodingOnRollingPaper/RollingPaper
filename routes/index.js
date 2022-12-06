@@ -22,7 +22,9 @@ router.post("/signup", controller.postSignup);
 
 // 게시글 작성 페이지 GET(임시)
 router.get("/paper/:userId/:userName", controller.getPaper);
-
+// 로그인 성공 페이지 GET
 router.get("/login/:userId", controller.getLoginUserId);
+// 게시글 생성 CREATE
+router.post("/post/create", controller.createPost);
 
 module.exports = router;
