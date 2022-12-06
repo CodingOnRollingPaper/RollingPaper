@@ -1,27 +1,31 @@
 const Post = function (Sequelize, DataTypes) {
-    const model = Sequelize.define(
+  const model = Sequelize.define(
     "post",
     {
-        postId: {
+      postId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
-        },
-        postContent: {
+      },
+      postContent: {
         type: DataTypes.STRING(255),
-        },
-        postPw: {
+      },
+      postPw: {
         type: DataTypes.STRING(30),
-        },
+      },
+      userId: {
+        type: DataTypes.STRING(30),
+        allowNull: false,
+      },
     },
     {
-        tableName: "post",
-        freezeTableName: true,
-        timestamps: false,
+      tableName: "post",
+      freezeTableName: true,
+      timestamps: false,
     }
-    );
-    return model;
+  );
+  return model;
 };
 
 module.exports = Post;

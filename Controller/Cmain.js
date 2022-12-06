@@ -88,3 +88,17 @@ exports.getPaper = (req, res) => {
     userId: req.params.userId,
   });
 };
+
+// 게시글 CREATE
+exports.createPost = (req, res) => {
+  models.Post.create({
+    userId: req.body.userId,
+    postContent: req.body.postContent,
+    postPw: req.body.postPw,
+  }).then((db_result) => {
+    res.send({
+      postId: db_result.dataValues.postId,
+      postContent: db_result.dataValues.postContent,
+    });
+  });
+};

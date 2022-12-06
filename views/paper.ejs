@@ -4,23 +4,59 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- axios cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>My Paper</title>
   </head>
   <body>
     <h1><%= userName %>님의 롤링 페이퍼~!</h1>
-    <div class="postContainer">
-      <div class="postContent">편지 컨텐츠 영역</div>
-      <div class="postBtn">
-        <button>수정</button>
-        <button>삭제</button>
+    <div class="userId"><%= userId %></div>
+    <!-- class='userId' display none 처리 부탁합니다. -->
+    <div class="postArea">
+      <div class="postContainer">
+        <div class="postContent">편지 컨텐츠 영역</div>
+        <div class="postBtn">
+          <button>수정</button>
+          <button>삭제</button>
+        </div>
       </div>
     </div>
-    <label for="post">
-      남기고 싶은 말: <input type="text" name="post" />
-    </label>
-    <label for="postPw">
-      비밀번호: <input type="password" name="postPw" />
-    </label>
-    <button>입력</button>
+
+    남기고 싶은 말:
+    <input class="submitContent" type="text" name="post" />
+    비밀번호:
+    <input class="submitPw" type="password" name="postPw" />
+    <button class="submitGo" onclick="createPost()">입력</button>
+    <script>
+      let submitGo = document.querySelector(".submitGo");
+      let submitContent = document.querySelector(".submitContent");
+      let submitPw = document.querySelector(".submitPw");
+      let userId = document.querySelector(".userId").textContent;
+
+      const createPost = () => {
+        console.log(submitContent.value, submitPw.value);
+        axios({
+          method: "post",
+          url: "/post/create",
+          data: {
+            userId: userId,
+            postContent: submitContent.value,
+            postPw: submitPw.value,
+          },
+        }).then((res) => {
+          let contentBox = `<div class="postContainer">
+            <div class="postId">게시 번호 ${res.data.postId}</div>
+            <div class="postContent">${res.data.postContent}</div>
+            <div class="postBtn">
+              <button>수정</button>
+              <button>삭제</button>
+            </div>
+          </div>`;
+          document
+            .querySelector(".postArea")
+            .insertAdjacentHTML("beforeend", contentBox);
+        });
+      };
+    </script>
   </body>
 </html>
