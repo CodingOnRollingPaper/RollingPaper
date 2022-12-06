@@ -8,15 +8,13 @@ header {
   text-align: center;
   font-family: "GmarketSansMedium";
   color: #fff;
-
-  .logo {
-    font-size: 4em;
-  }
-
-  span {
-    font-size: 1em;
-    color: #fff;
-  }
+}
+header .logo {
+  font-size: 4em;
+}
+header span {
+  font-size: 1em;
+  color: #fff;
 }
 
 article a {
