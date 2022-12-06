@@ -1,0 +1,38 @@
+#wrap {
+  width: 30vw;
+  min-width: 480px;
+  height: 100vh;
+  margin: 0 auto;
+  background: rgb(6, 5, 16);
+  position: relative;
+}
+
+header {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: "GmarketSansMedium";
+  color: #fff;
+}
+
+header .logo {
+  font-size: 70px;
+}
+
+header span {
+  color: #fff;
+}
+
+article a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  border-radius: 30px;
+  background: #fff;
+  color: #000;
+  margin: 0 auto;
+}
