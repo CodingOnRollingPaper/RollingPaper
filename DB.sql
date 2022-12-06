@@ -13,7 +13,7 @@ CREATE TABLE user (
 -- 게시글 테이블 생성 POST
 CREATE TABLE post (
 postId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-userId VARCHAR(30) NOT NULL, --foreing key
+userId VARCHAR(30) NOT NULL,
 FOREIGN KEY(userId) REFERENCES user(userId) ON UPDATE CASCADE ON DELETE CASCADE,
 postContent VARCHAR(255)  NOT NULL,
 postPw VARCHAR(30) NOT NULL
@@ -29,6 +29,8 @@ DESC user;
 
 DESC post;
 
+DROP TABLE post;
+
 SELECT * FROM user;
 
 SELECT * FROM post;
@@ -38,3 +40,7 @@ SELECT * FROM post WHERE userId = req.session.userId;
 -- 개인페이지에 남기는 Create
 INSERT INTO post (??, postContent, postPw) VALUES('??', '몰라몰라', '비밀번호');
 
+-- paper페이지에서 userid별 postContent 전체조회
+SELECT postContent FROM post WHERE userId = req.params.userId
+
+UPDATE post SET postContent = '~~' WHERE userId = 
