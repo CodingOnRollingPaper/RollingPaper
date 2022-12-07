@@ -21,8 +21,11 @@
         <div class="postBox">
           <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
           <div class="postContent"><%= data[i].dataValues.postContent %></div>
-          <div class="postBtn">
-            <button onclick="editBtn()">수정</button>
+          <div class="postBtn id<%= data[i].dataValues.postId %>">
+            <!-- <div class="postBtn"> -->
+            <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
+              수정
+            </button>
             <button onclick="deleteBtn()">삭제</button>
           </div>
         </div>
@@ -55,8 +58,8 @@
           let contentBox = `<div class="postContainer">
             <div class="postId">게시 번호 ${res.data.postId}</div>
             <div class="postContent">${res.data.postContent}</div>
-            <div class="postBtn">
-              <button>수정</button>
+            <div class="postBtn id${res.data.postId}">
+              <button onclick="editBtn(${res.data.postId})">수정</button>
               <button>삭제</button>
             </div>
           </div>`;
@@ -67,23 +70,46 @@
       };
 
       let postContent = document.querySelector(".postContent");
-      let postBox = document.querySelector(".postBox");
+      let postBtn = document.querySelector(".postBtn");
       const editBtn = async (id) => {
+        let postNum = document.querySelector(`.id${id}`);
+        console.log(id);
+        console.log(postNum);
+        console.log(postBtn);
         console.log("edit!");
-        const editBox = `<div class="postContent">${postContent.value}</div>
-          <div class="postBtn">
+        const editBox = `
             <input class="editPw" type="password" name="editPw">
-            <button onclick="editPost()">수정</button>
-          </div>`;
-        postBox.innerHTML = editBox;
+            <button onclick="editPwCheck()">PW 확인</button>
+         `;
+        postNum.innerHTML = editBox;
 
-        let result = await axios({
-          method: "GET",
-          url: `/paper/<%= userId %>/<%= userName %>/get?id=${id}`,
-        }).then((res) => {
-          console.log("editBtn res", res.data);
-          return res.data;
-        });
+        // let result = await axios({
+        //   method: "GET",
+        //   url: '/post/editPwCheck',
+        // }).then((res) => {
+        //   console.log("editBtn res", res.data);
+        //   return res.data;
+        // });
+      };
+
+      const editPwCheck = (id) => {
+        let editPw = document.querySelector(".editPw");
+        let postNum = document.querySelector(`.id${id}`);
+        console.log(editPw.value);
+        axios({
+          method: "POST",
+          url: "/post/editPwCheck",
+          data: {
+            postPw: editPw.value,
+          },
+        })
+          .then((res) => {
+            console.log(res.data);
+            console.log("오늘은 여기까지");
+          })
+          .then((data) => {
+            // console.log(data);
+          });
       };
 
       const deleteBtn = () => {

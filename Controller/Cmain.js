@@ -130,9 +130,21 @@ exports.createPost = (req, res) => {
 };
 
 // 게시글 하나 조회(수정)
-exports.getEdit = (req, res) => {
+exports.editPwCheck = (req, res) => {
   models.Post.findOne({
-    where: {},
+    where: {
+      postPw: req.body.postPw,
+    },
+  }).then((db_result) => {
+    console.log("dbresult야~", db_result);
+    if (db_result === null) {
+      res.send(false);
+    } else {
+      console.log("바꿀거야~", db_result.dataValues);
+      console.log("비번이야~", db_result.dataValues.postPw);
+      console.log("내용이야~", db_result.dataValues.postContent);
+      res.send(db_result.dataValues.postContent);
+    }
   });
 };
 

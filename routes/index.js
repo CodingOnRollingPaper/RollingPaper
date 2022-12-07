@@ -27,6 +27,6 @@ router.get("/login/:userId", controller.getLoginUserId);
 // 게시글 생성 CREATE
 router.post("/post/create", controller.createPost);
 // 게시글 하나 조회 - 수정
-router.get("/paper/:userId/:userName/get", controller.getEdit); // 하나조회
+router.post("/post/editPwCheck", controller.editPwCheck); // 하나조회
 
 module.exports = router;
