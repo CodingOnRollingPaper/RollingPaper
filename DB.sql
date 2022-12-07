@@ -21,7 +21,7 @@ postPw VARCHAR(30) NOT NULL
 
 SHOW databases;
 
-USE rolling_paper
+USE rolling_paper;
 
 SHOW tables;
 

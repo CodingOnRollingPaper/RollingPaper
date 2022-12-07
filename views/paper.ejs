@@ -17,11 +17,16 @@
     <!-- class='userId' display none 처리 부탁합니다. -->
     <div class="postArea">
       <div class="postContainer">
-        <div class="postContent">편지 컨텐츠 영역</div>
-        <div class="postBtn">
-          <button>수정</button>
-          <button>삭제</button>
+        <% for (let i = 0; i < data.length; i++) { %>
+        <div class="postBox">
+          <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
+          <div class="postContent"><%= data[i].dataValues.postContent %></div>
+          <div class="postBtn">
+            <button onclick="editBtn()">수정</button>
+            <button onclick="deleteBtn()">삭제</button>
+          </div>
         </div>
+        <% } %>
       </div>
     </div>
 
@@ -59,6 +64,30 @@
             .querySelector(".postArea")
             .insertAdjacentHTML("beforeend", contentBox);
         });
+      };
+
+      let postContent = document.querySelector(".postContent");
+      let postBox = document.querySelector(".postBox");
+      const editBtn = async (id) => {
+        console.log("edit!");
+        const editBox = `<div class="postContent">${postContent.value}</div>
+          <div class="postBtn">
+            <input class="editPw" type="password" name="editPw">
+            <button onclick="editPost()">수정</button>
+          </div>`;
+        postBox.innerHTML = editBox;
+
+        let result = await axios({
+          method: "GET",
+          url: `/paper/<%= userId %>/<%= userName %>/get?id=${id}`,
+        }).then((res) => {
+          console.log("editBtn res", res.data);
+          return res.data;
+        });
+      };
+
+      const deleteBtn = () => {
+        console.log("delete!");
       };
     </script>
   </body>
