@@ -10,19 +10,38 @@
     <link rel="stylesheet" href="/static/css/login.css" />
   </head>
   <body>
-    <h1>로그인</h1>
+    <div id="wrap">
+      <h1 class="logo"><a href="/">마음푸쉬</a></h1>
 
-    <form action="/login" method="post">
-      <label for="userId">
-        아이디: <input type="text" name="userId" id="userId" />
-      </label>
+      <form action="/login" method="post">
+        <h2>Members Login</h2>
+        <p>아래 아이디와 비밀번호를 입력하세요</p>
+        <label for="userId">
+          <input
+            type="text"
+            name="userId"
+            id="userId"
+            class="input-box"
+            placeholder="아이디를 입력하세요"
+          />
+        </label>
+        <br />
+        <label for="userPw">
+          <input
+            type="password"
+            name="userPw"
+            id="userPw"
+            class="input-box"
+            placeholder="비밀번호를 입력하세요"
+          />
+        </label>
+        <br />
+        <button class="login">로그인</button>
+      </form>
       <br />
-      <label for="userPw">
-        패스워드: <input type="password" name="userPw" id="userPw" />
-      </label>
-      <button>로그인</button>
-    </form>
-    <br />
-    <a href="/signup"><button>회원가입</button></a>
+      <hr />
+      <p>아이디가 없으신 분은 회원가입을 해주세요</p>
+      <a href="/signup" class="signup">회원가입</a>
+    </div>
   </body>
 </html>
