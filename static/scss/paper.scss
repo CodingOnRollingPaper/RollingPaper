@@ -44,7 +44,7 @@ body {
   }
 
   .postContent {
-    margin: 10px 0;
+    margin: 20px 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -120,11 +120,8 @@ body {
   }
 }
 
-.noshow {
-  display: none;
-}
-
-.postContentModal {
+// 편지 디테일 모달 창
+.postContainerDetail {
   background-color: $color-white;
   color: black;
   position: relative;
@@ -133,10 +130,50 @@ body {
   min-width: 370px;
   height: 56vh;
   border-radius: 10px;
+  text-align: center;
+
+  .postIdDetail {
+    font-size: 1.5rem;
+    margin: 15px 0;
+  }
+  .postContentDetail {
+    height: 300px;
+    overflow: scroll;
+    text-align: start;
+    margin-top: 20px;
+    background-color: blanchedalmond;
+    padding: 10px;
+  }
+
+  .postBtn {
+    margin-top: 15px;
+    button {
+      margin: 0 10px;
+      border: 1px solid $color-black;
+      padding: 5px;
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+
+  .editPw {
+    width: 20vw;
+    min-width: 350px;
+    height: 200px;
+    resize: none;
+    margin: 20px 0;
+    padding: 10px;
+  }
 }
 
-.close {
+// 모달 닫기 버튼
+.close,
+.closeDetail {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
+}
+
+.noshow {
+  display: none;
 }

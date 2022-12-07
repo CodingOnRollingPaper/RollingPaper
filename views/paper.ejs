@@ -19,25 +19,42 @@
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
       </div>
 
-      <!-- <div class="postArea noshow"></div> -->
-
+      <!-- 편지 목록 -->
       <div class="postArea">
         <% for (let i = 0; i < data.length; i++) { %>
         <div class="postContainer">
           <div class="postBox textArea">
-            <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
+            <div class="postId">📩 No. <%= data[i].dataValues.postId %></div>
             <div class="postContent"><%= data[i].dataValues.postContent %></div>
-            <div class="postBtn">
-              <button onclick="editBtn()">수정</button>
-              <button onclick="deleteBtn()">삭제</button>
-            </div>
           </div>
         </div>
         <% } %>
       </div>
 
-      <div class="postContentModal noshow"></div>
+      <!-- 편지 디테일 모달창 -->
+      <div class="postContentModal">
+        <% for (let i = 0; i < data.length; i++) { %>
+        <div class="postContainerDetail noshow">
+          <div>
+            <div class="closeDetail">X</div>
+          </div>
+          <div class="postBoxDetail">
+            <div class="postIdDetail">
+              📩 No. <%= data[i].dataValues.postId %> 번째 마음
+            </div>
+            <div class="postContentDetail">
+              <%= data[i].dataValues.postContent %>
+            </div>
+          </div>
+          <div class="postBtn">
+            <button onclick="editBtn()">수정</button>
+            <button onclick="deleteBtn()">삭제</button>
+          </div>
+        </div>
+        <% } %>
+      </div>
 
+      <!-- 편지 작성 모달창 -->
       <div class="writeContent noshow">
         <div class="close" onclick="show()">
           <div>X</div>
@@ -62,6 +79,8 @@
           <button class="submitGo" onclick="createPost()">입력</button>
         </div>
       </div>
+
+      <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
       <div class="writeImg" onclick="show()">
         <img src="/static/img/writing.png" alt="작성하기" />
       </div>
@@ -73,7 +92,7 @@
       let userId = document.querySelector(".userId").textContent;
 
       const createPost = () => {
-        // 유효성 검사
+        // 빈값 유효성 검사
         if (!submitContent.checkValidity()) {
           return submitContent.focus();
         } else if (!submitPw.checkValidity()) {
@@ -89,7 +108,7 @@
             postPw: submitPw.value,
           },
         }).then((res) => {
-          let contentBox = `<div class="postContainer textArea" onclick="postModal()">
+          let contentBox = `<div class="postContainer textArea">
               <div class="postId"> 📩 No. ${res.data.postId}</div>
               <div class="postContent">${res.data.postContent}</div>
           </div>`;
@@ -103,16 +122,16 @@
         postArea.classList.remove("noshow");
       };
 
-      let postContent = document.querySelector(".postContent");
-      let postBox = document.querySelector(".postBox");
+      // let postContainerDetail = document.querySelector(".postContainerDetail");
+      let postBoxDetail = document.querySelector(".postBoxDetail");
       const editBtn = async (id) => {
         console.log("edit!");
-        const editBox = `<div class="postContent">${postContent.value}</div>
+        const editBox = `<div class="postContent">${postContainerDetail.value}</div>
           <div class="postBtn">
-            <input class="editPw" type="password" name="editPw">
+            <textarea class="editPw" type="password" name="editPw"></textarea>
             <button onclick="editPost()">수정</button>
           </div>`;
-        postBox.innerHTML = editBox;
+        postBoxDetail.innerHTML = editBox;
 
         let result = await axios({
           method: "GET",
