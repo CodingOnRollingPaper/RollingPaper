@@ -14,29 +14,14 @@ const show = () => {
 };
 
 // const postModal = () => {
-//   let modalPostId = document.querySelectorAll(".postId");
-//   // console.log(modalPostId);
-//   let modalPostContent = document.querySelectorAll(".postContent");
-//   let textArea = document.querySelectorAll(".textArea");
-//   console.log(textArea);
-//   for (let i = 0; i < textArea.length; i++) {
-//     let modalContents = `<div class="close" onclick="closePostModal()">
-//             <div>X</div>
-//           </div>
-//           <div>${modalPostId[i].innerText}번째 마음</div>
-//           <div>${modalPostContent[i].innerText}</div>
-//           <div class="postBtn">
-//           <button>수정</button>
-//           <button>삭제</button>
-//           </div>`;
-//     postContentModal.innerHTML = modalContents;
-//   }
-
-//   postContentModal.classList.remove("noshow");
-//   postArea.classList.add("noshow");
+//   const postContentModal = document.querySelector(".postContentModal");
 // };
 
-const closePostModal = () => {
+// //   postContentModal.classList.remove("noshow");
+// //   postArea.classList.add("noshow");
+// // };
+
+const PostModal = () => {
   if (postContentModal.classList.contains("noshow")) {
     postContentModal.classList.remove("noshow");
     postArea.classList.add("noshow");

@@ -12,27 +12,29 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-
     <div id="wrap">
       <div id="header">
         <h1><%= userName %>님에게 온 마음</h1>
         <div class="userId"><%= userId %></div>
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
       </div>
+
+      <!-- <div class="postArea noshow"></div> -->
+
       <div class="postArea">
         <% for (let i = 0; i < data.length; i++) { %>
         <div class="postContainer">
-          <div class="postBox">
+          <div class="postBox textArea">
             <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
             <div class="postContent"><%= data[i].dataValues.postContent %></div>
             <div class="postBtn">
               <button onclick="editBtn()">수정</button>
               <button onclick="deleteBtn()">삭제</button>
             </div>
-           </div>
-      <% } %>
-    </div>
-
+          </div>
+        </div>
+        <% } %>
+      </div>
 
       <div class="postContentModal noshow"></div>
 
