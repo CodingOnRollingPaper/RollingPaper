@@ -8,18 +8,37 @@
     <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
     <link rel="stylesheet" href="/static/css/loginUser.css" />
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
   </head>
   <body>
-    <h1><%= userName %> 님! 환영합니다.</h1>
-    <fieldset>
-      지인들에게 내 롤링페이퍼를 공유하세요!
-      <div>
-        <a href="/paper/<%= userId %>/<%= userName %>"
-          >URL(서버 주소 + /paper/userId)</a
-        >
+    <div id="wrap">
+      <button class="logoutBtn">로그아웃</button>
+
+      <h1><%= userName %> 님! 환영합니다.</h1>
+      <fieldset>
+        지인들에게 내 롤링페이퍼를 공유하세요!
+        <div>
+          <a href="/paper/<%= userId %>/<%= userName %>"
+            >URL(서버 주소 + /paper/userId)</a
+          >
+          <p>링크복사하기</p>
+        </div>
+      </fieldset>
+      <!-- 공유하기 버튼 -->
+      <h3>공유하기</h3>
+      <div class="share">
+        <button type="button" id="facebook" class="btn">
+          페이스북으로 공유하기
+        </button>
+        <!-- <button type="button" id="kakao" class="btn">
+          카카오톡으로 공유하기
+        </button> -->
+        <a id="kakao" class="btn" href="javascript:shareKakao();">카카오톡</a>
+        <button type="button" id="insta" class="btn">
+          인스타그램으로 공유하기
+        </button>
       </div>
-    </fieldset>
-    <h3>공유하기</h3>
-    <div>카카오, 네이버, 등등</div>
+    </div>
+    <script src="/static/js/loginUser.js"></script>
   </body>
 </html>
