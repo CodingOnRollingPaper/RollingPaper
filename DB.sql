@@ -38,7 +38,7 @@ SELECT * FROM post;
 SELECT * FROM post WHERE userId = req.session.userId;
 
 -- 개인페이지에 남기는 Create
-INSERT INTO post (??, postContent, postPw) VALUES('??', '몰라몰라', '비밀번호');
+INSERT INTO post (userId, postContent, postPw) VALUES('nksj98', 'ㅁㅁㅁ', '111');
 
 -- paper페이지에서 userid별 postContent 전체조회
 SELECT postContent FROM post WHERE userId = req.params.userId
