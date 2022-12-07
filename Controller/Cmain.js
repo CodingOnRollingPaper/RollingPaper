@@ -76,10 +76,14 @@ exports.postIdCheck = (req, res) => {
 
 exports.getLoginUserId = (req, res) => {
   console.log("세션 살아있어?", req.session.user);
-  res.render("loginUser", {
-    userId: req.params.userId,
-    userName: req.session.user.userName,
-  });
+  if (req.session.user) {
+    res.render("loginUser", {
+      userId: req.params.userId,
+      userName: req.session.user.userName,
+    });
+  } else {
+    res.redirect("/login");
+  }
 };
 
 // exports.getPaper = (req, res) => {
