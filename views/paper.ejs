@@ -16,8 +16,8 @@
     <div class="userId"><%= userId %></div>
     <!-- class='userId' display none 처리 부탁합니다. -->
     <div class="postArea">
+      <% for (let i = 0; i < data.length; i++) { %>
       <div class="postContainer">
-        <% for (let i = 0; i < data.length; i++) { %>
         <div class="postBox">
           <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
           <div class="postContent"><%= data[i].dataValues.postContent %></div>
@@ -26,8 +26,8 @@
             <button onclick="deleteBtn()">삭제</button>
           </div>
         </div>
-        <% } %>
       </div>
+      <% } %>
     </div>
 
     남기고 싶은 말:
