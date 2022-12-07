@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
+
     <div id="wrap">
       <div id="header">
         <h1><%= userName %>님에게 온 마음</h1>
@@ -28,10 +29,10 @@
               <button onclick="editBtn()">수정</button>
               <button onclick="deleteBtn()">삭제</button>
             </div>
-          </div>
-        </div>
-        <% } %>
-      </div>
+           </div>
+      <% } %>
+    </div>
+
 
       <div class="postContentModal noshow"></div>
 
@@ -98,6 +99,30 @@
         submitPw.value = "";
         writeContent.classList.add("noshow");
         postArea.classList.remove("noshow");
+      };
+
+      let postContent = document.querySelector(".postContent");
+      let postBox = document.querySelector(".postBox");
+      const editBtn = async (id) => {
+        console.log("edit!");
+        const editBox = `<div class="postContent">${postContent.value}</div>
+          <div class="postBtn">
+            <input class="editPw" type="password" name="editPw">
+            <button onclick="editPost()">수정</button>
+          </div>`;
+        postBox.innerHTML = editBox;
+
+        let result = await axios({
+          method: "GET",
+          url: `/paper/<%= userId %>/<%= userName %>/get?id=${id}`,
+        }).then((res) => {
+          console.log("editBtn res", res.data);
+          return res.data;
+        });
+      };
+
+      const deleteBtn = () => {
+        console.log("delete!");
       };
     </script>
     <script src="/static/js/paper.js"></script>

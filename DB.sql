@@ -21,7 +21,7 @@ postPw VARCHAR(30) NOT NULL
 
 SHOW databases;
 
-USE rolling_paper
+USE rolling_paper;
 
 SHOW tables;
 
@@ -43,4 +43,4 @@ INSERT INTO post (??, postContent, postPw) VALUES('??', '몰라몰라', '비밀�
 -- paper페이지에서 userid별 postContent 전체조회
 SELECT postContent FROM post WHERE userId = req.params.userId
 
-UPDATE post SET postContent = '~~' WHERE userId = 
+UPDATE post SET postContent = '~~' WHERE userId = req.params.userId
