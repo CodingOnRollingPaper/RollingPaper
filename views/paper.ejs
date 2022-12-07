@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
+
     <div id="wrap">
       <div id="header">
         <h1><%= userName %>님에게 온 마음</h1>
@@ -21,22 +22,24 @@
 
       <!-- <div class="postArea noshow"></div> -->
 
-      <div class="postArea">
-        <% for (let i = 0; i < data.length; i++) { %>
-        <div class="postContainer">
-          <div class="postBox textArea">
-            <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
-            <div class="postContent"><%= data[i].dataValues.postContent %></div>
-            <div class="postBtn">
-              <button onclick="editBtn()">수정</button>
-              <button onclick="deleteBtn()">삭제</button>
-            </div>
+    <div class="postArea">
+      <% if (isPost) { %> <% for (let i = 0; i < data.length; i++) { %>
+      <div class="postContainer">
+        <div class="postBox">
+          <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
+          <div class="postContent"><%= data[i].dataValues.postContent %></div>
+          <div class="postBtn">
+            <button onclick="editBtn()">수정</button>
+            <button onclick="deleteBtn()">삭제</button>
           </div>
         </div>
-        <% } %>
       </div>
-
-      <div class="postContentModal noshow"></div>
+      <% } %> <% } %>
+    </div>
+    <% if(userSession && userSession.userId == userId){%>
+    <button>공유하기</button>
+    <% } else { %> 
+    <div class="postContentModal noshow"></div>
 
       <div class="writeContent noshow">
         <div class="close" onclick="show()">
@@ -66,6 +69,9 @@
         <img src="/static/img/writing.png" alt="작성하기" />
       </div>
     </div>
+    <% } %>
+
+
     <script>
       let submitGo = document.querySelector(".submitGo");
       let submitContent = document.querySelector(".submitContent");
@@ -89,6 +95,7 @@
             postPw: submitPw.value,
           },
         }).then((res) => {
+
           let contentBox = `<div class="postContainer textArea" onclick="postModal()">
               <div class="postId"> 📩 No. ${res.data.postId}</div>
               <div class="postContent">${res.data.postContent}</div>
