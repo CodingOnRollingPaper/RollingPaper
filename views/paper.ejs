@@ -16,7 +16,7 @@
     <div class="userId"><%= userId %></div>
     <!-- class='userId' display none 처리 부탁합니다. -->
     <div class="postArea">
-      <% for (let i = 0; i < data.length; i++) { %>
+      <% if (isPost) { %> <% for (let i = 0; i < data.length; i++) { %>
       <div class="postContainer">
         <div class="postBox">
           <div class="postId">게시 번호 <%= data[i].dataValues.postId %></div>
@@ -27,14 +27,17 @@
           </div>
         </div>
       </div>
-      <% } %>
+      <% } %> <% } %>
     </div>
-
-    남기고 싶은 말:
+    <% if(userSession && userSession.userId == userId){%>
+    <button>공유하기</button>
+    <% } else { %> 남기고 싶은 말:
     <input class="submitContent" type="text" name="post" />
     비밀번호:
     <input class="submitPw" type="password" name="postPw" />
     <button class="submitGo" onclick="createPost()">입력</button>
+    <% } %>
+
     <script>
       let submitGo = document.querySelector(".submitGo");
       let submitContent = document.querySelector(".submitContent");
@@ -56,8 +59,8 @@
             <div class="postId">게시 번호 ${res.data.postId}</div>
             <div class="postContent">${res.data.postContent}</div>
             <div class="postBtn">
-              <button>수정</button>
-              <button>삭제</button>
+              <button onclick="editBtn()">수정</button>
+              <button onclick="deleteBtn()">삭제</button>
             </div>
           </div>`;
           document
