@@ -102,6 +102,7 @@ exports.getPaper = (req, res) => {
     console.log("findAll >>", db_result[0].dataValues.postContent);
 
     res.render("paper", {
+      data: db_result,
       userName: req.params.userName,
       userId: req.params.userId,
     });
@@ -127,3 +128,16 @@ exports.createPost = (req, res) => {
 
   console.log("여기임", req.body.userId);
 };
+
+// 게시글 하나 조회(수정)
+exports.getEdit = (req, res) => {
+  models.Post.findOne({
+    where: {},
+  });
+};
+
+// 게시글 수정
+
+// 게시글 하나 조회(삭제)
+
+// 게시글 삭제
