@@ -76,10 +76,14 @@ exports.postIdCheck = (req, res) => {
 
 exports.getLoginUserId = (req, res) => {
   console.log("세션 살아있어?", req.session.user);
-  res.render("loginUser", {
-    userId: req.params.userId,
-    userName: req.session.user.userName,
-  });
+  if (req.session.user) {
+    res.render("loginUser", {
+      userId: req.params.userId,
+      userName: req.session.user.userName,
+    });
+  } else {
+    res.redirect("/login");
+  }
 };
 
 // exports.getPaper = (req, res) => {
@@ -98,14 +102,24 @@ exports.getPaper = (req, res) => {
       userId: req.params.userId,
     },
   }).then((db_result) => {
-    console.log("findAll >>", db_result[0].dataValues);
-    console.log("findAll >>", db_result[0].dataValues.postContent);
-
-    res.render("paper", {
-      data: db_result,
-      userName: req.params.userName,
-      userId: req.params.userId,
-    });
+    console.log("findAll >>", db_result.length);
+    if (db_result.length == 0) {
+      res.render("paper", {
+        isPost: false,
+        data: db_result,
+        userName: req.params.userName,
+        userId: req.params.userId,
+        userSession: req.session.user,
+      });
+    } else {
+      res.render("paper", {
+        isPost: true,
+        data: db_result,
+        userName: req.params.userName,
+        userId: req.params.userId,
+        userSession: req.session.user,
+      });
+    }
   });
 
   console.log(req.params.userId);
