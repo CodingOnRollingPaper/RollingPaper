@@ -157,7 +157,7 @@ exports.editPwCheck = (req, res) => {
       console.log("바꿀거야~", db_result.dataValues);
       console.log("비번이야~", db_result.dataValues.postPw);
       console.log("내용이야~", db_result.dataValues.postContent);
-      res.send(db_result.dataValues.postContent);
+      res.send(db_result.dataValues);
     }
   });
 };
