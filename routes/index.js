@@ -11,6 +11,9 @@ router.get("/login", controller.getLogin);
 // 로그인 페이지 로그인 POST
 router.post("/login", controller.postLogin);
 
+// 로그아웃 POST
+router.post("/logout", controller.postLogout);
+
 // 회원가입 페이지 렌더링 GET
 router.get("/signup", controller.getSignup);
 

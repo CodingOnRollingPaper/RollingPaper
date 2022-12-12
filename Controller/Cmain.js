@@ -37,6 +37,12 @@ exports.postLogin = (req, res) => {
   });
 };
 
+// 로그아웃 POST
+exports.postLogout = (req, res) => {
+  req.session.destroy(() => req.session);
+  res.redirect("/");
+};
+
 // 회원가입 페이지 렌더링 GET
 exports.getSignup = (req, res) => {
   res.render("signup");
@@ -78,6 +84,7 @@ exports.getLoginUserId = (req, res) => {
   console.log("세션 살아있어?", req.session.user);
   if (req.session.user) {
     res.render("loginUser", {
+      userSession: req.session.user,
       userId: req.params.userId,
       userName: req.session.user.userName,
     });
