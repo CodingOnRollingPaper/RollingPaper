@@ -12,13 +12,16 @@
   </head>
   <body>
     <div id="wrap">
-      <button class="logoutBtn">로그아웃</button>
-
+      <% if (userSession) { %>
+      <form action="/logout" method="post">
+        <button>LogOut</button>
+      </form>
+      <% } %>
       <h1><%= userName %> 님! 환영합니다.</h1>
       <fieldset>
         지인들에게 내 롤링페이퍼를 공유하세요!
         <div>
-          <a href="/paper/<%= userId %>/<%= userName %>"
+          <a onclick="clip()" href="/paper/<%= userId %>/<%= userName %>"
             >URL(서버 주소 + /paper/userId)</a
           >
           <p>링크복사하기</p>
