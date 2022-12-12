@@ -21,8 +21,6 @@ body {
   overflow: scroll;
   display: block;
   position: relative;
-
-
   height: 500px;
   z-index: 1000;
 }
@@ -65,7 +63,7 @@ body {
   align-items: center;
 }
 .writeContent .writeArea .submitContent {
-  width: 25vw;
+  width: 350px;
   min-width: 370px;
   height: 160px;
   resize: none;
@@ -76,7 +74,7 @@ body {
   margin: 20px 0;
   position: relative;
   padding-left: 10px;
-  width: 25vw;
+  width: 350px;
   min-width: 370px;
   height: 25px;
 }
@@ -143,7 +141,7 @@ body {
 .postContainerDetail .editPw {
   width: 20vw;
   min-width: 350px;
-  height: 20px;
+  height: 200px;
   resize: none;
   margin: 20px 0;
   padding: 10px;
@@ -160,11 +158,9 @@ body {
   display: none;
 }
 
-
 .logout > button {
   position: relative;
   z-index: 1000;
   color: white;
   cursor: pointer;
 }
-
