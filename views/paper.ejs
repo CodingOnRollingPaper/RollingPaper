@@ -8,20 +8,23 @@
     <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
     <link rel="stylesheet" href="/static/css/paper.css" />
-    <link rel="stylesheet" href="/static/css/snow.css">
+    <link rel="stylesheet" href="/static/css/snow.css" />
     <!-- axios cdn -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <% if (userSession) { %>
+    <form action="/logout" method="post">
+      <button>LogOut</button>
+    </form>
+    <% } %>
     <div id="wrap">
       <div id="header">
-        <canvas id="canvas">
-        </canvas>
+        <canvas id="canvas"> </canvas>
         <h1><%= userName %>님에게 온 마음</h1>
         <div class="userId"><%= userId %></div>
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
       </div>
-
       <!-- 편지 목록 -->
       <div class="postArea">
         <% for (let i = 0; i < data.length; i++) { %>
@@ -50,7 +53,9 @@
             </div>
           </div>
           <div class="postBtn id<%= data[i].dataValues.postId %>">
-            <button onclick="editBtn('<%= data[i].dataValues.postId %>')">수정</button>
+            <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
+              수정
+            </button>
             <button onclick="deleteBtn()">삭제</button>
           </div>
         </div>
@@ -112,12 +117,12 @@
           },
         }).then((res) => {
           //let contentBox = `<div class="postContainer">
-           // <div class="postId">게시 번호 ${res.data.postId}</div>
+          // <div class="postId">게시 번호 ${res.data.postId}</div>
           //  <div class="postContent">${res.data.postContent}</div>
-           // <div class="postBtn id${res.data.postId}">
-           //   <button onclick="editBtn(${res.data.postId})">수정</button>
-            //  <button>삭제</button>
-           // </div>
+          // <div class="postBtn id${res.data.postId}">
+          //   <button onclick="editBtn(${res.data.postId})">수정</button>
+          //  <button>삭제</button>
+          // </div>
           let contentBox = `<div class="postContainer textArea">
               <div class="postId"> 📩 No. ${res.data.postId}</div>
               <div class="postContent">${res.data.postContent}</div>
@@ -132,8 +137,8 @@
         postArea.classList.remove("noshow");
       };
 
-     // let postContent = document.querySelector(".postContent");
-    //  let postBtn = document.querySelector(".postBtn");
+      // let postContent = document.querySelector(".postContent");
+      //  let postBtn = document.querySelector(".postBtn");
       // let postContainerDetail = document.querySelector(".postContainerDetail");
       let postBoxDetail = document.querySelector(".postBoxDetail");
       const editBtn = async (id) => {
@@ -142,11 +147,11 @@
         console.log(postNum);
         console.log(postBtn);
         console.log("edit!");
-       // const editBox = `
-       //     <input class="editPw" type="password" name="editPw">
-       //     <button onclick="editPwCheck()">PW 확인</button>
-       //  `;
-      //  postNum.innerHTML = editBox;
+        // const editBox = `
+        //     <input class="editPw" type="password" name="editPw">
+        //     <button onclick="editPwCheck()">PW 확인</button>
+        //  `;
+        //  postNum.innerHTML = editBox;
         const editBox = `<div class="postContent">${postContainerDetail.value}</div>
           <div class="postBtn">
             <textarea class="editPw" type="password" name="editPw"></textarea>
