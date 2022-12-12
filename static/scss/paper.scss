@@ -180,8 +180,9 @@ body {
   display: none;
 }
 
-.logout {
+.logout > button {
   position: relative;
   z-index: 1000;
   color: white;
+  cursor: pointer;
 }

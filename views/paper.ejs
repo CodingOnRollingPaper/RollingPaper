@@ -15,15 +15,15 @@
   <body>
     <div id="wrap">
       <div id="header">
-        <div class="logout">
-          <% if (userSession) { %>
-          <form action="/logout" method="post">
+        <% if (userSession) { %>
+        <form action="/logout" method="post">
+          <div class="logout">
             <button style="color: white">LogOut</button>
-          </form>
-          <% } %>
-        </div>
+          </div>
+        </form>
+        <% } %>
 
-        <!-- <canvas id="canvas"> </canvas> -->
+        <canvas id="canvas"> </canvas>
         <h1><%= userName %>님에게 온 마음</h1>
         <div class="userId"><%= userId %></div>
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
