@@ -2,8 +2,9 @@ const { result } = require("lodash");
 const models = require("../models");
 
 // 메인 페이지 GET
-exports.getMain = (req, res) => {
-  res.render("index");
+exports.getMain = async (req, res) => {
+  const userCount = await models.User.findAll();
+  res.render("index", { userCount: userCount.length });
 };
 
 // 로그인 페이지 GET
