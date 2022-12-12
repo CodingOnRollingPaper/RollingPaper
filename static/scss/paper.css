@@ -19,10 +19,6 @@ body {
 
 .postArea {
   overflow: scroll;
-  display: block;
-  position: relative;
-
-
   height: 500px;
   z-index: 1000;
 }
@@ -32,7 +28,7 @@ body {
   min-width: 300px;
   height: 75px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 15px;
   margin: 10px 0;
 }
@@ -54,10 +50,10 @@ body {
   color: black;
   position: relative;
   padding: 5%;
-  width: 350px;
+  width: 25vw;
   min-width: 370px;
-  height: 450px;
-  border-radius: 5px;
+  height: 56vh;
+  border-radius: 10px;
 }
 .writeContent .writeArea {
   display: flex;
@@ -67,7 +63,7 @@ body {
 .writeContent .writeArea .submitContent {
   width: 25vw;
   min-width: 370px;
-  height: 160px;
+  height: 178px;
   resize: none;
   margin: 20px 0;
   padding: 10px;
@@ -99,8 +95,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  margin: 20px;
+  position: absolute;
+  top: 85%;
+  left: 80%;
 }
 .writeImg img {
   width: 40px;
@@ -112,22 +109,22 @@ body {
   color: black;
   position: relative;
   padding: 5%;
-  width: 350px;
-  height: 400px;
-  min-height: 400px;
-  border-radius: 5px;
+  width: 25vw;
+  min-width: 370px;
+  height: 56vh;
+  border-radius: 10px;
   text-align: center;
 }
 .postContainerDetail .postIdDetail {
   font-size: 1.5rem;
-  margin: 5px 0;
+  margin: 15px 0;
 }
 .postContainerDetail .postContentDetail {
-  height: 250px;
+  height: 300px;
   overflow: scroll;
   text-align: start;
   margin-top: 20px;
-  border: 1px solid black;
+  background-color: blanchedalmond;
   padding: 10px;
 }
 .postContainerDetail .postBtn {
@@ -143,7 +140,7 @@ body {
 .postContainerDetail .editPw {
   width: 20vw;
   min-width: 350px;
-  height: 20px;
+  height: 200px;
   resize: none;
   margin: 20px 0;
   padding: 10px;
@@ -158,13 +155,4 @@ body {
 
 .noshow {
   display: none;
-}
-
-
-.logout > button {
-  position: relative;
-  z-index: 1000;
-  color: white;
-  cursor: pointer;
-}
-
+}/*# sourceMappingURL=paper.css.map */

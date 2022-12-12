@@ -24,8 +24,10 @@ body {
 // 메세지가 보이는 부분
 .postArea {
   overflow: scroll;
+
   display: block;
   position: relative;
+
   height: 500px;
   z-index: 1000;
 

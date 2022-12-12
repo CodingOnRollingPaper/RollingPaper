@@ -2,8 +2,9 @@ const { result } = require("lodash");
 const models = require("../models");
 
 // 메인 페이지 GET
-exports.getMain = (req, res) => {
-  res.render("index");
+exports.getMain = async (req, res) => {
+  const userCount = await models.User.findAll();
+  res.render("index", { userCount: userCount.length });
 };
 
 // 로그인 페이지 GET
@@ -164,7 +165,7 @@ exports.editPwCheck = (req, res) => {
       console.log("바꿀거야~", db_result.dataValues);
       console.log("비번이야~", db_result.dataValues.postPw);
       console.log("내용이야~", db_result.dataValues.postContent);
-      res.send(db_result.dataValues.postContent);
+      res.send(db_result.dataValues);
     }
   });
 };
