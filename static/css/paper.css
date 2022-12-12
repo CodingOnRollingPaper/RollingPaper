@@ -1,3 +1,4 @@
+
 body {
   color: white;
 }
@@ -6,7 +7,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: hidden;
+  overflow: hidden;
+  position: relative;
 }
 
 #header {
@@ -36,7 +38,7 @@ body {
   font-weight: 700;
 }
 .postArea .postContent {
-  margin: 10px 0;
+  margin: 20px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -104,11 +106,7 @@ body {
   height: 40px;
 }
 
-.noshow {
-  display: none;
-}
-
-.postContentModal {
+.postContainerDetail {
   background-color: white;
   color: black;
   position: relative;
@@ -117,10 +115,46 @@ body {
   min-width: 370px;
   height: 56vh;
   border-radius: 10px;
+  text-align: center;
+}
+.postContainerDetail .postIdDetail {
+  font-size: 1.5rem;
+  margin: 15px 0;
+}
+.postContainerDetail .postContentDetail {
+  height: 300px;
+  overflow: scroll;
+  text-align: start;
+  margin-top: 20px;
+  background-color: blanchedalmond;
+  padding: 10px;
+}
+.postContainerDetail .postBtn {
+  margin-top: 15px;
+}
+.postContainerDetail .postBtn button {
+  margin: 0 10px;
+  border: 1px solid black;
+  padding: 5px;
+  background-color: black;
+  color: white;
+}
+.postContainerDetail .editPw {
+  width: 20vw;
+  min-width: 350px;
+  height: 200px;
+  resize: none;
+  margin: 20px 0;
+  padding: 10px;
 }
 
-.close {
+.close,
+.closeDetail {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
+}
+
+.noshow {
+  display: none;
 }

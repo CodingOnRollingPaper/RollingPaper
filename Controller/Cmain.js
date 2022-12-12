@@ -37,6 +37,12 @@ exports.postLogin = (req, res) => {
   });
 };
 
+// 로그아웃 POST
+exports.postLogout = (req, res) => {
+  req.session.destroy(() => req.session);
+  res.redirect("/");
+};
+
 // 회원가입 페이지 렌더링 GET
 exports.getSignup = (req, res) => {
   res.render("signup");
@@ -78,6 +84,7 @@ exports.getLoginUserId = (req, res) => {
   console.log("세션 살아있어?", req.session.user);
   if (req.session.user) {
     res.render("loginUser", {
+      userSession: req.session.user,
       userId: req.params.userId,
       userName: req.session.user.userName,
     });
@@ -144,9 +151,21 @@ exports.createPost = (req, res) => {
 };
 
 // 게시글 하나 조회(수정)
-exports.getEdit = (req, res) => {
+exports.editPwCheck = (req, res) => {
   models.Post.findOne({
-    where: {},
+    where: {
+      postPw: req.body.postPw,
+    },
+  }).then((db_result) => {
+    console.log("dbresult야~", db_result);
+    if (db_result === null) {
+      res.send(false);
+    } else {
+      console.log("바꿀거야~", db_result.dataValues);
+      console.log("비번이야~", db_result.dataValues.postPw);
+      console.log("내용이야~", db_result.dataValues.postContent);
+      res.send(db_result.dataValues.postContent);
+    }
   });
 };
 

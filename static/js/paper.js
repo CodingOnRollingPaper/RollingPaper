@@ -2,31 +2,27 @@ const writeImg = document.querySelector(".writeImg");
 const writeContent = document.querySelector(".writeContent");
 const postArea = document.querySelector(".postArea");
 const postContentModal = document.querySelector(".postContentModal");
+const postContainer = document.querySelectorAll(".postContainer");
+const postContainerDetail = document.querySelectorAll(".postContainerDetail");
+const closeDetail = document.querySelectorAll(".closeDetail");
 
 const show = () => {
-  if (writeContent.classList.contains("noshow")) {
-    writeContent.classList.remove("noshow");
-    postArea.classList.add("noshow");
-  } else {
-    writeContent.classList.add("noshow");
-    postArea.classList.remove("noshow");
-  }
+  writeContent.classList.toggle("noshow");
+  postArea.classList.toggle("noshow");
 };
 
-// const postModal = () => {
-//   const postContentModal = document.querySelector(".postContentModal");
-// };
+// postDetail 모달 띄우기
+for (let i = 0; i < postContainer.length; i++) {
+  postContainer[i].addEventListener("click", () => {
+    postContainerDetail[i].classList.toggle("noshow");
+    postArea.classList.toggle("noshow");
+  });
+}
 
-// //   postContentModal.classList.remove("noshow");
-// //   postArea.classList.add("noshow");
-// // };
-
-const PostModal = () => {
-  if (postContentModal.classList.contains("noshow")) {
-    postContentModal.classList.remove("noshow");
-    postArea.classList.add("noshow");
-  } else {
-    postContentModal.classList.add("noshow");
-    postArea.classList.remove("noshow");
-  }
-};
+// x 누르면 postDetail 모달 지우기
+for (let i = 0; i < postContainer.length; i++) {
+  closeDetail[i].addEventListener("click", () => {
+    postContainerDetail[i].classList.toggle("noshow");
+    postArea.classList.toggle("noshow");
+  });
+}

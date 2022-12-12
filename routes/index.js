@@ -11,6 +11,9 @@ router.get("/login", controller.getLogin);
 // 로그인 페이지 로그인 POST
 router.post("/login", controller.postLogin);
 
+// 로그아웃 POST
+router.post("/logout", controller.postLogout);
+
 // 회원가입 페이지 렌더링 GET
 router.get("/signup", controller.getSignup);
 
@@ -27,6 +30,6 @@ router.get("/login/:userId", controller.getLoginUserId);
 // 게시글 생성 CREATE
 router.post("/post/create", controller.createPost);
 // 게시글 하나 조회 - 수정
-router.get("/paper/:userId/:userName/get", controller.getEdit); // 하나조회
+router.post("/post/editPwCheck", controller.editPwCheck); // 하나조회
 
 module.exports = router;

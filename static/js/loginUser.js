@@ -1,7 +1,7 @@
 const btnShareFb = document.querySelector("#facebook");
 
 btnShareFb.addEventListener("click", () => {
-  const pageUrl = "news.v.daum.net/v/20220319120213003";
+  const pageUrl = document.querySelector("#url").href;
   window.open(`http://www.facebook.com/sharer/sharer.php?u=${pageUrl}`);
 });
 
