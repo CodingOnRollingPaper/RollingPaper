@@ -41,40 +41,32 @@
       </div>
 
       <!-- 편지 디테일 모달창 -->
-      <div class="postContentModal">
-        <% for (let i = 0; i < data.length; i++) { %>
-        <div
-          class="postContainerDetail noshow Id<%= data[i].dataValues.postId %>"
-        >
-          <div>
-            <div class="closeDetail">X</div>
+      <% for (let i = 0; i < data.length; i++) { %>
+      <div
+        class="postContainerDetail noshow Id<%= data[i].dataValues.postId %>"
+      >
+        <div>
+          <div class="closeDetail">X</div>
+        </div>
+        <div class="postBoxDetail">
+          <div class="postIdDetail">
+            📩 No. <%= data[i].dataValues.postId %> 번째 마음
           </div>
-          <div class="postBoxDetail">
-            <div class="postIdDetail">
-              📩 No. <%= data[i].dataValues.postId %> 번째 마음
-            </div>
-            <div
-              class="postContentDetail Content<%= data[i].dataValues.postId %>"
-            >
-              <%= data[i].dataValues.postContent %>
-            </div>
-          </div>
-
-          <div class="postBtn Btn<%= data[i].dataValues.postId %>">
-
-            <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
-              수정
-            </button>
-            <button onclick="deleteBtn()">삭제</button>
+          <div
+            class="postContentDetail Content<%= data[i].dataValues.postId %>"
+          >
+            <%= data[i].dataValues.postContent %>
           </div>
         </div>
-        <div class="postBtn id<%= data[i].dataValues.postId %>">
+
+        <div class="postBtn Btn<%= data[i].dataValues.postId %>">
           <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
             수정
           </button>
           <button onclick="deleteBtn()">삭제</button>
         </div>
       </div>
+      <div class="postBtn id<%= data[i].dataValues.postId %>"></div>
       <% } %>
 
       <!-- 편지 작성 모달창 -->
@@ -154,7 +146,6 @@
         writeContent.classList.add("noshow");
         postArea.classList.remove("noshow");
       };
-
 
       // let postBtn = document.querySelector(".postBtn");
 
