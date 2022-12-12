@@ -2,8 +2,9 @@ const { result } = require("lodash");
 const models = require("../models");
 
 // 메인 페이지 GET
-exports.getMain = (req, res) => {
-  res.render("index");
+exports.getMain = async (req, res) => {
+  const userCount = await models.User.findAll();
+  res.render("index", { userCount: userCount.length });
 };
 
 // 로그인 페이지 GET
@@ -35,6 +36,12 @@ exports.postLogin = (req, res) => {
       res.redirect(`/login/${req.body.userId}`);
     }
   });
+};
+
+// 로그아웃 POST
+exports.postLogout = (req, res) => {
+  req.session.destroy(() => req.session);
+  res.redirect("/");
 };
 
 // 회원가입 페이지 렌더링 GET
@@ -78,6 +85,7 @@ exports.getLoginUserId = (req, res) => {
   console.log("세션 살아있어?", req.session.user);
   if (req.session.user) {
     res.render("loginUser", {
+      userSession: req.session.user,
       userId: req.params.userId,
       userName: req.session.user.userName,
     });
