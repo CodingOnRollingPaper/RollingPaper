@@ -13,14 +13,17 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <% if (userSession) { %>
-    <form action="/logout" method="post">
-      <button>LogOut</button>
-    </form>
-    <% } %>
     <div id="wrap">
       <div id="header">
-        <canvas id="canvas"> </canvas>
+        <div class="logout">
+          <% if (userSession) { %>
+          <form action="/logout" method="post">
+            <button style="color: white">LogOut</button>
+          </form>
+          <% } %>
+        </div>
+
+        <!-- <canvas id="canvas"> </canvas> -->
         <h1><%= userName %>님에게 온 마음</h1>
         <div class="userId"><%= userId %></div>
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
@@ -38,29 +41,27 @@
       </div>
 
       <!-- 편지 디테일 모달창 -->
-      <div class="postContentModal">
-        <% for (let i = 0; i < data.length; i++) { %>
-        <div class="postContainerDetail noshow">
-          <div>
-            <div class="closeDetail">X</div>
+      <% for (let i = 0; i < data.length; i++) { %>
+      <div class="postContainerDetail noshow">
+        <div>
+          <div class="closeDetail">X</div>
+        </div>
+        <div class="postBoxDetail">
+          <div class="postIdDetail">
+            📩 No. <%= data[i].dataValues.postId %> 번째 마음
           </div>
-          <div class="postBoxDetail">
-            <div class="postIdDetail">
-              📩 No. <%= data[i].dataValues.postId %> 번째 마음
-            </div>
-            <div class="postContentDetail">
-              <%= data[i].dataValues.postContent %>
-            </div>
-          </div>
-          <div class="postBtn id<%= data[i].dataValues.postId %>">
-            <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
-              수정
-            </button>
-            <button onclick="deleteBtn()">삭제</button>
+          <div class="postContentDetail">
+            <%= data[i].dataValues.postContent %>
           </div>
         </div>
-        <% } %>
+        <div class="postBtn id<%= data[i].dataValues.postId %>">
+          <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
+            수정
+          </button>
+          <button onclick="deleteBtn()">삭제</button>
+        </div>
       </div>
+      <% } %>
 
       <!-- 편지 작성 모달창 -->
       <div class="writeContent noshow">
@@ -76,12 +77,12 @@
             placeholder="전하고 싶은 메세지를 작성해 주세요"
             required
           ></textarea>
-          비밀번호
+          PASSWORD
           <input
             class="submitPw"
             type="password"
             name="postPw"
-            placeholder="30자 이하로 작성해 주세요"
+            placeholder="글 수정, 삭제시 필요한 비밀번호를 30자 이하로 작성해 주세요"
             required
           />
           <button class="submitGo" onclick="createPost()">입력</button>
