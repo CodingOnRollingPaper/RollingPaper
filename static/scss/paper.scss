@@ -24,8 +24,9 @@ body {
 // 메세지가 보이는 부분
 .postArea {
   overflow: scroll;
-  display: block;
+  // display: block;
   height: 500px;
+  z-index: 1000;
 
   // 메세지 입력시 추가되는 클래스
   .textArea {
