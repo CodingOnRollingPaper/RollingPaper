@@ -87,11 +87,14 @@
           <button class="submitGo" onclick="createPost()">입력</button>
         </div>
       </div>
-
+      <% if (userSession && userSession.userName === userName) { %>
+      <a>공유하기</a>
+      <% } else { %>
       <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
       <div class="writeImg" onclick="show()">
         <img src="/static/img/writing.png" alt="작성하기" />
       </div>
+      <% } %>
     </div>
     <script>
       let submitGo = document.querySelector(".submitGo");
