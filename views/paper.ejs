@@ -67,7 +67,7 @@
           <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
             수정
           </button>
-          <button onclick="deleteBtn()">삭제</button>
+          <button onclick="deleteBtn('<%= data[i].dataValues.postId %>')">삭제</button>
         </div>
       </div>
 
@@ -149,14 +149,7 @@
             postPw: submitPw.value,
           },
         }).then((res) => {
-          //let contentBox = `<div class="postContainer">
-          // <div class="postId">게시 번호 ${res.data.postId}</div>
-          //  <div class="postContent">${res.data.postContent}</div>
-          // <div class="postBtn id${res.data.postId}">
-          //   <button onclick="editBtn(${res.data.postId})">수정</button>
-          //  <button>삭제</button>
-          // </div>
-          window.location.reload();
+           window.location.reload();
         });
         submitContent.value = "";
         submitPw.value = "";
@@ -164,61 +157,160 @@
         postArea.classList.remove("noshow");
       };
 
-      // let postBtn = document.querySelector(".postBtn");
-
-      // let postContent = document.querySelector(".postContent");
-      //  let postBtn = document.querySelector(".postBtn");
-      // let postContainerDetail = document.querySelector(".postContainerDetail");
       let postBoxDetail = document.querySelector(".postBoxDetail");
-      const editBtn = async (id) => {
+      const editBtn = (id) => {
         let postNum = document.querySelector(`.id${id}`);
         console.log(id);
         console.log(postNum);
         console.log(postBtn);
         console.log("edit!");
-        // const editBox = `
-        //     <input class="editPw" type="password" name="editPw">
-        //     <button onclick="editPwCheck()">PW 확인</button>
-        //  `;
-        //  postNum.innerHTML = editBox;
-        const editBox = `<div class="postContent">${postContainerDetail.value}</div>
-          <div class="postBtn">
-            <textarea class="editPw" type="password" name="editPw"></textarea>
-            <button onclick="editPost()">수정</button>
-          </div>`;
-        postBoxDetail.innerHTML = editBox;
 
-        // let result = await axios({
-        //   method: "GET",
-        //   url: '/post/editPwCheck',
-        // }).then((res) => {
-        //   console.log("editBtn res", res.data);
-        //   return res.data;
-        // });
+        const editBox = `
+          <div class="editBox">
+            <input class="editPw" type="password" name="editPw">
+            <button onclick="editPwCheck('${id}')">비밀번호 확인</button>
+          </div>`;
+
+        postNum.innerHTML = editBox;
       };
 
       const editPwCheck = (id) => {
         let editPw = document.querySelector(".editPw");
         let postNum = document.querySelector(`.id${id}`);
         console.log(editPw.value);
+        console.log(id);
         axios({
           method: "POST",
           url: "/post/editPwCheck",
           data: {
+            postId: id,
             postPw: editPw.value,
           },
         })
           .then((res) => {
-            console.log(res.data);
-            console.log("오늘은 여기까지");
+            console.log(res.data); // { postId: ?, postContent: ?, postPw: ?, userId: ? }
+
+            if (!res.data.result) {
+              alert("비밀번호가 틀렸습니다. 다시 확인해주세요!");
+              return;
+            } else {
+              let dataValues = res.data.dataValues;
+              let postContainerDetail = document.querySelector(
+                `.Id${dataValues.postId}`
+              );
+              let postContentDetail = document.querySelector(`.Content${id}`);
+              const editInput = `
+              <div>
+                <div class="closeDetail">X</div>
+              </div>
+              <div class="postBoxDetail">
+                <div class="postIdDetail">
+                  📩 No. ${dataValues.postId} 번째 마음
+                </div>
+                <input type="text" value="${dataValues.postContent}" onfocus
+                  class="postContentDetail Content${dataValues.postId}"
+                >
+              </div>
+              <div class="postBtn Btn${dataValues.postId}">
+                <button onclick="editPost('${dataValues.postId}')">
+                  수정
+                </button>
+              </div>
+            `;
+              postContainerDetail.innerHTML = editInput;
+            }
           })
           .then((data) => {
             // console.log(data);
           });
       };
 
-      const deleteBtn = () => {
+      const editPost = (id) => {
+        console.log("editPost");
+        console.log(`${id}`);
+        let Content = document.querySelector(`.Content${id}`);
+        console.log(Content.value);
+        axios({
+          method: "POST",
+          url: "/post/editPost",
+          data: {
+            postId: id,
+            postContent: Content.value,
+          },
+        }).then((res) => {
+          console.log(res.data);
+          if (res.data) {
+            Content.textContent = Content.value;
+            alert("수정성공~");
+            document.location.href = "/paper/<%= userId %>/<%= userName %>";
+            return;
+          } else {
+            alert("수정실패ㅠ");
+            return;
+          }
+        });
+      };
+
+      const deleteBtn = (id) => {
+        let postContentDetail = document.querySelector(`.Content${id}`);
+        let postNum = document.querySelector(`.Btn${id}`);
+        console.log(id);
+        console.log(postContentDetail.textContent.trim());
+        console.log(postNum);
         console.log("delete!");
+
+        const deleteBox = `
+          <div class="deleteBox">
+            <input class="deletePw" type="password" name="deletePw">
+            <button onclick="deletePwCheck('${id}')">비밀번호 확인 및 삭제</button>
+          </div>`;
+
+        postNum.innerHTML = deleteBox;
+      };
+
+      const deletePwCheck = (id) => {
+        let deletePw = document.querySelector(".deletePw");
+        let postNum = document.querySelector(`.id${id}`);
+        let postContentDetail = document.querySelector(`.Content${id}`);
+        console.log(`${id}`);
+        console.log(id);
+        console.log("!");
+        console.log(deletePw.value);
+        axios({
+          method: "POST",
+          url: "/post/deletePwCheck",
+          data: {
+            postId: id,
+            postPw: deletePw.value,
+          },
+        })
+          .then((res) => {
+            console.log(res.data);
+            if (!res.data) {
+              alert("비밀번호를 확인해주세요");
+              return;
+            } else {
+              let confirmDelete = confirm("정말 삭제하시겠습니까?");
+              if (confirmDelete === true) {
+                console.log(`${id}`);
+                axios({
+                  method: "POST",
+                  url: "/post/deletePost",
+                  data: {
+                    postId: `${id}`,
+                  },
+                }).then((res) => {
+                  document.location.href =
+                    "/paper/<%= userId %>/<%= userName %>";
+                });
+                return;
+              }
+            }
+          })
+          .then((data) => {
+            // console.log(data);
+            //
+          });
       };
     </script>
     <script src="/static/js/paper.js"></script>

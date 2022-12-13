@@ -155,6 +155,7 @@ exports.createPost = (req, res) => {
 exports.editPwCheck = (req, res) => {
   models.Post.findOne({
     where: {
+      postId: req.body.postId,
       postPw: req.body.postPw,
     },
   }).then((db_result) => {
@@ -162,16 +163,71 @@ exports.editPwCheck = (req, res) => {
     if (db_result === null) {
       res.send(false);
     } else {
+      const dataValues = db_result.dataValues;
       console.log("바꿀거야~", db_result.dataValues);
       console.log("비번이야~", db_result.dataValues.postPw);
       console.log("내용이야~", db_result.dataValues.postContent);
-      res.send(db_result.dataValues);
+      res.send({ result: true, dataValues: db_result.dataValues });
     }
   });
 };
 
 // 게시글 수정
+exports.editPost = (req, res) => {
+  models.Post.update(
+    {
+      postContent: req.body.postContent,
+    },
+    {
+      where: {
+        postId: req.body.postId,
+      },
+    }
+  ).then((db_result) => {
+    console.log("수정됨", db_result); // [1]
+    if (db_result == 0) {
+      res.send(false);
+    } else {
+      res.send(true);
+    }
+    // console.log("결과", db_result);
+  });
+
+  // console.log("여기임", req.body.userId);
+};
 
 // 게시글 하나 조회(삭제)
+exports.deletePwCheck = (req, res) => {
+  models.Post.findOne({
+    where: {
+      postId: req.body.postId,
+      postPw: req.body.postPw,
+    },
+  }).then((db_result) => {
+    console.log("dbresult야~!!", db_result);
+    if (db_result === null) {
+      res.send(false);
+    } else {
+      console.log("지울거야~", db_result.dataValues);
+      console.log("지울비번이야~", db_result.dataValues.postPw);
+      console.log("지울내용이야~", db_result.dataValues.postContent);
+      res.send(true);
+    }
+  });
+};
 
 // 게시글 삭제
+exports.deletePost = (req, res) => {
+  models.Post.destroy({
+    where: {
+      postId: req.body.postId, // 바꿀거
+    },
+  }).then((db_result) => {
+    console.log("삭제할겨", db_result);
+    if (db_result === 0) {
+      res.send(false);
+    } else {
+      res.send(true);
+    }
+  });
+};
