@@ -98,7 +98,7 @@
             <li class="emoticon emoticon-9">¯\(ºдಠ)/¯</li>
             <li class="emoticon emoticon-10">ദ്ദി ˉ͈̀꒳ˉ͈́ )✧</li>
             <li class="emoticon emoticon-11">( ﾟ▽ﾟ)/</li>
-            <li class="emoticon emoticon-12">╭(°ﾛ°”)╯</li>
+            <li class="emoticon emoticon-12">╭(°ﾛ°")╯</li>
             <li class="emoticon emoticon-13">٩( ᐛ )و</li>
             <li class="emoticon emoticon-14">◕‿◕✿</li>
             <li class="emoticon emoticon-15">＿φ(￣ー￣ )</li>
@@ -114,11 +114,14 @@
           <button class="submitGo" onclick="createPost()">입력</button>
         </div>
       </div>
-
+      <% if (userSession && userSession.userName === userName) { %>
+      <a>공유하기</a>
+      <% } else { %>
       <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
       <div class="writeImg" onclick="show()">
         <img src="/static/img/writing.png" alt="작성하기" />
       </div>
+      <% } %>
     </div>
     <script>
       let submitGo = document.querySelector(".submitGo");
