@@ -5,15 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Paper</title>
-    <link
-      rel="shortcut icon"
-      href="/static/img/favicon.png"
-      type="image/x-icon"
-    />
     <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
-    <link rel="stylesheet" href="/static/css/paper.css" />
     <link rel="stylesheet" href="/static/css/snow.css" />
+    <link rel="stylesheet" href="/static/css/paper.css" />
     <!-- axios cdn -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -88,7 +83,7 @@
             placeholder="전하고 싶은 메세지를 작성해 주세요"
             required
           ></textarea>
-
+          Emoticon
           <ul class="emoticon-list">
             <li class="emoticon emoticon-1">⸜(*ˊᗜˋ*)⸝</li>
             <li class="emoticon emoticon-2">/(^p^)/</li>
@@ -106,7 +101,7 @@
             <li class="emoticon emoticon-14">◕‿◕✿</li>
             <li class="emoticon emoticon-15">＿φ(￣ー￣ )</li>
           </ul>
-
+          PASSWORD
           <input
             class="submitPw"
             type="password"
@@ -117,14 +112,11 @@
           <button class="submitGo" onclick="createPost()">입력</button>
         </div>
       </div>
-      <% if (userSession && userSession.userName === userName) { %>
-      <a>공유하기</a>
-      <% } else { %>
+
       <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
       <div class="writeImg" onclick="show()">
         <img src="/static/img/writing.png" alt="작성하기" />
       </div>
-      <% } %>
     </div>
     <script>
       let submitGo = document.querySelector(".submitGo");

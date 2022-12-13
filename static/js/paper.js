@@ -9,6 +9,7 @@ const closeDetail = document.querySelectorAll(".closeDetail");
 const show = () => {
   writeContent.classList.toggle("noshow");
   postArea.classList.toggle("noshow");
+  writeImg.classList.toggle("noshow");
 };
 
 // postDetail 모달 띄우기
