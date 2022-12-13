@@ -140,17 +140,25 @@ body {
   background-color: black;
   color: white;
 }
+.postContainerDetail .postContentDetailEdit {
+  width: 250px;
+  height: 250px;
+  overflow: scroll;
+  text-align: start;
+  margin-top: 20px;
+  border: 1px solid black;
+  padding: 10px;
+}
 .postContainerDetail .editPw {
-  width: 20vw;
-  min-width: 350px;
-  height: 20px;
+  height: 10px;
   resize: none;
-  margin: 20px 0;
+  margin: 5px 0;
   padding: 10px;
 }
 
 .close,
-.closeDetail {
+.closeDetail,
+.closeDetailEdit {
   cursor: pointer;
   display: flex;
   justify-content: flex-end;
@@ -174,7 +182,8 @@ body {
 
 /* emoticon 이모티콘 */
 .writeContent .writeArea .emoticon-list {
-  width: 400px;
+  width: 90%;
+  min-width: 300px;
   overflow: scroll;
   overflow: auto;
   white-space: nowrap;

@@ -4,6 +4,9 @@ const postArea = document.querySelector(".postArea");
 const postContentModal = document.querySelector(".postContentModal");
 const postContainer = document.querySelectorAll(".postContainer");
 const postContainerDetail = document.querySelectorAll(".postContainerDetail");
+const postContainerDetailEdit = document.querySelectorAll(
+  ".postContainerDetailEdit"
+);
 const closeDetail = document.querySelectorAll(".closeDetail");
 
 const show = () => {
@@ -35,6 +38,7 @@ for (let i = 0; i < postContainer.length; i++) {
     postContainerDetail[i].classList.toggle("noshow");
     postArea.classList.toggle("noshow");
     writeImg.classList.toggle("noshow");
+    window.location.reload();
   });
 }
 
@@ -49,6 +53,7 @@ canvas.addEventListener("click", () => {
   for (let i = 0; i < postContainer.length; i++) {
     if (!postContainerDetail[i].classList.contains("noshow")) {
       postContainerDetail[i].classList.add("noshow");
+      postContainerDetailEdit[i].classList.add("noshow");
       postArea.classList.remove("noshow");
       writeImg.classList.remove("noshow");
     }
