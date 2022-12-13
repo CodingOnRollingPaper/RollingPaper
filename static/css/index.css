@@ -1,25 +1,46 @@
-header {
+#wrap {
+  background: #fff;
+}
+#wrap header {
   text-align: center;
   font-family: "GmarketSansMedium";
   color: #fff;
-  padding: 200px 0;
+  background: rgb(6, 5, 16);
+  padding: 155px 0 5px;
+  border-radius: 0 0 20px 20px;
 }
-header .logo {
-  font-size: 4em;
+#wrap header .logo {
+  font-size: 3.8em;
 }
-header span {
+#wrap header img {
+  width: 310px;
+  padding: 35px;
+}
+#wrap header span {
   font-size: 1em;
-  color: #fff;
+  font-family: "Pretendard-Regular";
+  color: #eee;
 }
-
-.start {
+#wrap header .start {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
-  padding: 15px;
+  width: 70%;
+  padding: 20px;
   border-radius: 5px;
+  font-size: 1.2em;
   background: #fff;
   color: #000;
-  margin: 100px auto;
+  margin: 310px auto 90px;
+}
+#wrap .count {
+  background: #eee;
+  color: #333;
+  width: 80%;
+  display: block;
+  padding: 15px;
+  font-size: 0.8em;
+  border-radius: 15px;
+  margin: 30px auto;
+  text-align: center;
 }

@@ -109,12 +109,3 @@ function init() {
 }
 
 init();
-
-const img = new Image();
-
-img.src = "/static/img/Lovepik_com-400185526-snowfield.png";
-
-console.log(img);
-img.onload = function () {
-  ctx.drawImage(img, 3000, 3000);
-};

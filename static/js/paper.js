@@ -16,6 +16,15 @@ for (let i = 0; i < postContainer.length; i++) {
   postContainer[i].addEventListener("click", () => {
     postContainerDetail[i].classList.toggle("noshow");
     postArea.classList.toggle("noshow");
+    writeImg.classList.toggle("noshow");
+  });
+}
+
+//emoticon 추가
+const emoticon = document.querySelectorAll(".emoticon");
+for (let i = 0; emoticon.length > i; i++) {
+  emoticon[i].addEventListener("click", () => {
+    document.querySelector(".submitContent").value += emoticon[i].textContent;
   });
 }
 
@@ -24,5 +33,6 @@ for (let i = 0; i < postContainer.length; i++) {
   closeDetail[i].addEventListener("click", () => {
     postContainerDetail[i].classList.toggle("noshow");
     postArea.classList.toggle("noshow");
+    writeImg.classList.toggle("noshow");
   });
 }
