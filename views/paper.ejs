@@ -82,7 +82,8 @@
             class="submitContent"
             type="text"
             name="post"
-            placeholder="전하고 싶은 메세지를 작성해 주세요"
+            placeholder="전하고 싶은 메세지를 100자 이하로 작성해 주세요"
+            maxlength="100"
             required
           ></textarea>
           Emoticon
@@ -197,15 +198,15 @@
               let postContentDetail = document.querySelector(`.Content${id}`);
               const editInput = `
               <div>
-                <div class="closeDetail">X</div>
+                <div class="closeDetailEdit">X</div>
               </div>
               <div class="postBoxDetail">
                 <div class="postIdDetail">
                   📩 No. ${dataValues.postId} 번째 마음
                 </div>
-                <input type="text" value="${dataValues.postContent}" onfocus
-                  class="postContentDetail Content${dataValues.postId}"
-                >
+                <textarea type="text" onfocus
+                  class="postContentDetailEdit Content${dataValues.postId}"
+                >${dataValues.postContent}</textarea>
               </div>
               <div class="postBtn Btn${dataValues.postId}">
                 <button onclick="editPost('${dataValues.postId}')">
@@ -218,6 +219,16 @@
           })
           .then((data) => {
             // console.log(data);
+            const closeDetailEdit = document.querySelector(".closeDetailEdit");
+            console.log(closeDetailEdit);
+            for (let i = 0; i < postContainer.length; i++) {
+              closeDetailEdit.addEventListener("click", () => {
+                postContainerDetail[i].classList.toggle("noshow");
+                postArea.classList.toggle("noshow");
+                writeImg.classList.toggle("noshow");
+                window.location.reload();
+              });
+            }
           });
       };
 
@@ -236,13 +247,18 @@
         }).then((res) => {
           console.log(res.data);
           if (res.data) {
-            Content.textContent = Content.value;
-            alert("수정성공~");
-            document.location.href = "/paper/<%= userId %>/<%= userName %>";
-            return;
-          } else {
-            alert("수정실패ㅠ");
-            return;
+            if (Content.value == "") {
+              alert("수정할 내용을 작성해 주세요");
+            } else {
+              console.log(Content.textContent);
+              console.log(Content.value);
+              Content.textContent = Content.value;
+              alert("수정되었습니다.");
+              document.location.href = "/paper/<%= userId %>/<%= userName %>";
+              return;
+            }
+          } else if (!res.data) {
+            alert("수정할 내용을 작성해 주세요");
           }
         });
       };
