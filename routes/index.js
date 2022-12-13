@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controller/Cmain");
+const controller = require("../Controller/Cmain");
 
 // 메인 페이지 GET
 router.get("/", controller.getMain);
@@ -31,5 +31,11 @@ router.get("/login/:userId", controller.getLoginUserId);
 router.post("/post/create", controller.createPost);
 // 게시글 하나 조회 - 수정
 router.post("/post/editPwCheck", controller.editPwCheck); // 하나조회
+// 게시글 수정
+router.post("/post/editPost", controller.editPost);
+// 게시글 하나 조회 - 삭제
+router.post("/post/deletePwCheck", controller.deletePwCheck); // 하나조회
+// 게시글 삭제
+router.post("/post/deletePost", controller.deletePost); // 하나조회
 
 module.exports = router;

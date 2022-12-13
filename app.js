@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8000;
+const port = 8010;
 const session = require("express-session");
 
 const indexRouter = require("./routes");
