@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Paper</title>
+    <link
+      rel="shortcut icon"
+      href="/static/img/favicon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
     <link rel="stylesheet" href="/static/css/paper.css" />
@@ -13,14 +18,14 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <% if (userSession) { %>
-    <form action="/logout" method="post">
-      <button>LogOut</button>
-    </form>
-    <% } %>
     <div id="wrap">
-      <canvas id="canvas"> </canvas>
+      <% if (userSession) { %>
+      <form action="/logout" method="post">
+        <button>LogOut</button>
+      </form>
+      <% } %>
       <div id="header">
+        <canvas id="canvas"> </canvas>
         <h1><%= userName %>님에게 온 마음</h1>
         <div class="userId"><%= userId %></div>
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
@@ -76,7 +81,25 @@
             placeholder="전하고 싶은 메세지를 작성해 주세요"
             required
           ></textarea>
-          비밀번호
+          Emoticon
+          <ul class="emoticon-list">
+            <li class="emoticon emoticon-1">⸜(*ˊᗜˋ*)⸝</li>
+            <li class="emoticon emoticon-2">/(^p^)/</li>
+            <li class="emoticon emoticon-3">˚✧₊⁎( ˘ω˘ )⁎⁺˳✧</li>
+            <li class="emoticon emoticon-4">(╬☉д⊙)</li>
+            <li class="emoticon emoticon-5">ヽ(￣д￣;)ノ=3=3=3</li>
+            <li class="emoticon emoticon-6">(*´□`)ゞ</li>
+            <li class="emoticon emoticon-7">ヾ(*ゝω・*)ﾉ</li>
+            <li class="emoticon emoticon-8">（￣ε￣ʃƪ）</li>
+            <li class="emoticon emoticon-9">¯\(ºдಠ)/¯</li>
+            <li class="emoticon emoticon-10">ദ്ദി ˉ͈̀꒳ˉ͈́ )✧</li>
+            <li class="emoticon emoticon-11">( ﾟ▽ﾟ)/</li>
+            <li class="emoticon emoticon-12">╭(°ﾛ°”)╯</li>
+            <li class="emoticon emoticon-13">٩( ᐛ )و</li>
+            <li class="emoticon emoticon-14">◕‿◕✿</li>
+            <li class="emoticon emoticon-15">＿φ(￣ー￣ )</li>
+          </ul>
+          PASSWORD
           <input
             class="submitPw"
             type="password"

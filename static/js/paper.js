@@ -19,6 +19,14 @@ for (let i = 0; i < postContainer.length; i++) {
   });
 }
 
+//emoticon 추가
+const emoticon = document.querySelectorAll(".emoticon");
+for (let i = 0; emoticon.length > i; i++) {
+  emoticon[i].addEventListener("click", () => {
+    document.querySelector(".submitContent").value += emoticon[i].textContent;
+  });
+}
+
 // x 누르면 postDetail 모달 지우기
 for (let i = 0; i < postContainer.length; i++) {
   closeDetail[i].addEventListener("click", () => {
