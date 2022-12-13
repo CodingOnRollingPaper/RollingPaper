@@ -295,22 +295,6 @@
             // console.log(data);
           });
       };
-
-      const deletePost = (id) => {
-        console.log("!!!!!");
-        let postContentDetail = document.querySelector(`.Content${id}`);
-        let postNum = document.querySelector(`.Btn${id}`);
-        console.log(id);
-        console.log(postContentDetail.textContent.trim());
-        console.log(postNum);
-        axios({
-          method: "POST",
-          url: "/post/deletePost",
-          data: {
-            postId: deletePw.value,
-          },
-        });
-      };
     </script>
     <script src="/static/js/paper.js"></script>
     <script src="/static/js/snow.js"></script>
