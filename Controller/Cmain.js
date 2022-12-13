@@ -23,7 +23,6 @@ exports.postLogin = (req, res) => {
   }).then((result) => {
     console.log("로그인 결과", result);
     if (result == null) {
-      res.send("로그인에 실패했습니다 아이디나 비밀번호를 확인해주세요");
       return;
     } else {
       req.session.user = {
