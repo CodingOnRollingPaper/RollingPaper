@@ -6,7 +6,7 @@
     font-family: "GmarketSansMedium";
     color: #fff;
     background: rgb(6, 5, 16);
-    padding: 155px 0 5px;
+    padding: 80px 0 5px;
     border-radius: 0 0 20px 20px;
 
     .logo {
@@ -14,12 +14,13 @@
     }
 
     img {
-      width: 310px;
+      width: 60%;
       padding: 35px;
     }
 
     span {
-      font-size: 1em;
+      font-size: 0.9em;
+      line-height: 1.5em;
       font-family: "Pretendard-Regular";
       color: #eee;
     }
@@ -34,7 +35,7 @@
       font-size: 1.2em;
       background: #fff;
       color: #000;
-      margin: 310px auto 90px;
+      margin: 100px auto 90px;
     }
   }
   .count {

@@ -165,3 +165,28 @@ body {
   color: white;
   cursor: pointer;
 }
+/*scroll bar customizing*/
+.postArea::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/* emoticon 이모티콘 */
+.writeContent .writeArea .emoticon-list {
+  width: 400px;
+  overflow: scroll;
+  overflow: auto;
+  white-space: nowrap;
+  height: 50px;
+  line-height: auto;
+}
+.emoticon-list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+.writeContent .writeArea .emoticon-list .emoticon {
+  display: inline;
+  background-color: gainsboro;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 0 5px;
+  cursor: pointer;
+}
