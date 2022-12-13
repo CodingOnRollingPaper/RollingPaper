@@ -19,13 +19,16 @@
   </head>
   <body>
     <div id="wrap">
-      <% if (userSession) { %>
-      <form action="/logout" method="post">
-        <button>LogOut</button>
-      </form>
-      <% } %>
       <div id="header">
+        <% if (userSession) { %>
+        <form action="/logout" method="post">
+          <div class="logout">
+            <button style="color: white">LogOut</button>
+          </div>
+        </form>
+        <% } %>
         <canvas id="canvas"> </canvas>
+
         <h1><%= userName %>님에게 온 마음</h1>
         <div class="userId"><%= userId %></div>
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
@@ -43,29 +46,33 @@
       </div>
 
       <!-- 편지 디테일 모달창 -->
-      <div class="postContentModal">
-        <% for (let i = 0; i < data.length; i++) { %>
-        <div class="postContainerDetail noshow">
-          <div>
-            <div class="closeDetail">X</div>
+      <% for (let i = 0; i < data.length; i++) { %>
+      <div
+        class="postContainerDetail noshow Id<%= data[i].dataValues.postId %>"
+      >
+        <div>
+          <div class="closeDetail">X</div>
+        </div>
+        <div class="postBoxDetail">
+          <div class="postIdDetail">
+            📩 No. <%= data[i].dataValues.postId %> 번째 마음
           </div>
-          <div class="postBoxDetail">
-            <div class="postIdDetail">
-              📩 No. <%= data[i].dataValues.postId %> 번째 마음
-            </div>
-            <div class="postContentDetail">
-              <%= data[i].dataValues.postContent %>
-            </div>
-          </div>
-          <div class="postBtn id<%= data[i].dataValues.postId %>">
-            <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
-              수정
-            </button>
-            <button onclick="deleteBtn()">삭제</button>
+          <div
+            class="postContentDetail Content<%= data[i].dataValues.postId %>"
+          >
+            <%= data[i].dataValues.postContent %>
           </div>
         </div>
-        <% } %>
+        <div class="postBtn id<%= data[i].dataValues.postId %>">
+          <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
+            수정
+          </button>
+          <button onclick="deleteBtn()">삭제</button>
+        </div>
       </div>
+
+      <div class="postBtn id<%= data[i].dataValues.postId %>"></div>
+      <% } %>
 
       <!-- 편지 작성 모달창 -->
       <div class="writeContent noshow">
@@ -81,7 +88,7 @@
             placeholder="전하고 싶은 메세지를 작성해 주세요"
             required
           ></textarea>
-          Emoticon
+
           <ul class="emoticon-list">
             <li class="emoticon emoticon-1">⸜(*ˊᗜˋ*)⸝</li>
             <li class="emoticon emoticon-2">/(^p^)/</li>
@@ -99,12 +106,12 @@
             <li class="emoticon emoticon-14">◕‿◕✿</li>
             <li class="emoticon emoticon-15">＿φ(￣ー￣ )</li>
           </ul>
-          PASSWORD
+
           <input
             class="submitPw"
             type="password"
             name="postPw"
-            placeholder="30자 이하로 작성해 주세요"
+            placeholder="글 수정, 삭제시 필요한 비밀번호를 30자 이하로 작성해 주세요"
             required
           />
           <button class="submitGo" onclick="createPost()">입력</button>
@@ -149,19 +156,15 @@
           //   <button onclick="editBtn(${res.data.postId})">수정</button>
           //  <button>삭제</button>
           // </div>
-          let contentBox = `<div class="postContainer textArea">
-              <div class="postId"> 📩 No. ${res.data.postId}</div>
-              <div class="postContent">${res.data.postContent}</div>
-          </div>`;
-          document
-            .querySelector(".postArea")
-            .insertAdjacentHTML("beforeend", contentBox);
+          window.location.reload();
         });
         submitContent.value = "";
         submitPw.value = "";
         writeContent.classList.add("noshow");
         postArea.classList.remove("noshow");
       };
+
+      // let postBtn = document.querySelector(".postBtn");
 
       // let postContent = document.querySelector(".postContent");
       //  let postBtn = document.querySelector(".postBtn");

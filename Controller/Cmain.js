@@ -23,7 +23,7 @@ exports.postLogin = (req, res) => {
   }).then((result) => {
     console.log("로그인 결과", result);
     if (result == null) {
-      res.send("로그인에 실패했습니다 아이디나 비밀번호를 확인해주세요");
+      res.render("login");
       return;
     } else {
       req.session.user = {
@@ -109,6 +109,7 @@ exports.getPaper = (req, res) => {
     where: {
       userId: req.params.userId,
     },
+    order: [["postId", "DESC"]],
   }).then((db_result) => {
     console.log("findAll >>", db_result.length);
     if (db_result.length == 0) {
@@ -165,7 +166,7 @@ exports.editPwCheck = (req, res) => {
       console.log("바꿀거야~", db_result.dataValues);
       console.log("비번이야~", db_result.dataValues.postPw);
       console.log("내용이야~", db_result.dataValues.postContent);
-      res.send(db_result.dataValues.postContent);
+      res.send(db_result.dataValues);
     }
   });
 };

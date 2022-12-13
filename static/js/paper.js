@@ -16,6 +16,7 @@ for (let i = 0; i < postContainer.length; i++) {
   postContainer[i].addEventListener("click", () => {
     postContainerDetail[i].classList.toggle("noshow");
     postArea.classList.toggle("noshow");
+    writeImg.classList.toggle("noshow");
   });
 }
 
@@ -32,5 +33,6 @@ for (let i = 0; i < postContainer.length; i++) {
   closeDetail[i].addEventListener("click", () => {
     postContainerDetail[i].classList.toggle("noshow");
     postArea.classList.toggle("noshow");
+    writeImg.classList.toggle("noshow");
   });
 }
