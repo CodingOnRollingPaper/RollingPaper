@@ -156,7 +156,6 @@
         let postNum = document.querySelector(`.id${id}`);
         console.log(id);
         console.log(postNum);
-        console.log(postBtn);
         console.log("edit!");
 
         const editBox = `
@@ -247,7 +246,7 @@
 
       const deleteBtn = (id) => {
         let postContentDetail = document.querySelector(`.Content${id}`);
-        let postNum = document.querySelector(`.Btn${id}`);
+        let postNum = document.querySelector(`.id${id}`);
         console.log(id);
         console.log(postContentDetail.textContent.trim());
         console.log(postNum);
