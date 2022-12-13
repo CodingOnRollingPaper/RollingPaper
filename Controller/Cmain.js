@@ -23,6 +23,7 @@ exports.postLogin = (req, res) => {
   }).then((result) => {
     console.log("로그인 결과", result);
     if (result == null) {
+      res.render("login");
       return;
     } else {
       req.session.user = {
