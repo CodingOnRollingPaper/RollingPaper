@@ -34,5 +34,9 @@ function clip() {
   textarea.select();
   document.execCommand("copy");
   document.body.removeChild(textarea);
-  alert("링크가 복사되었습니다. 친구들에게 공유해보세요");
+  Swal.fire(
+    "링크가 복사되었습니다!",
+    "친구들에게 공유하여 마음을 받아보세요",
+    "success"
+  );
 }

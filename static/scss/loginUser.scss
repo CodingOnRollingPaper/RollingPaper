@@ -3,39 +3,53 @@
 
   h1 {
     font-size: 2em;
-    padding: 40px;
+    padding: 40px 0 50px;
   }
 
   fieldset {
     width: 90%;
     margin: 0 auto;
+    height: 50vh;
+    border-radius: 15px;
+    color: #333;
+    background: url(/static/img/paper.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Pretendard-Regular";
+    font-size: 1.2em;
+    font-weight: 600;
+    line-height: 1.5em;
+
+    .url {
+      padding: 20px;
+    }
   }
 
   .share {
-    position: relative;
     display: flex;
-    width: 60%;
-    margin: 0 auto;
-    justify-content: space-between;
-    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+
     .btn {
-      text-indent: -9999px;
+      color: #fff;
+      font-size: 1.3em;
+      font-weight: bold;
+      width: 400px;
+      box-sizing: border-box;
+      border-radius: 15px;
       display: block;
-      width: 80px;
-      height: 80px;
-      background-size: 100%;
+      padding: 20px;
+      margin: 10px;
     }
 
     #facebook {
-      background-image: url(/static/img/facebook.png);
+      margin-top: 20px;
+      border: 2px solid blue;
     }
 
     #kakao {
-      background-image: url(/static/img/kakaotalk.png);
-    }
-
-    #insta {
-      background-image: url(/static/img/instagram.png);
+      border: 2px solid yellow;
     }
   }
 }

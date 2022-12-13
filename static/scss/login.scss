@@ -5,23 +5,30 @@
     font-size: 2em;
     line-height: 2em;
     text-align: center;
+
+    img {
+      width: 150px;
+      padding: 40px;
+    }
   }
 
   form {
     width: 90%;
     height: 50vh;
     margin: 0 auto;
-    // background: #ccc;
     border-radius: 10px;
     text-align: center;
+    background: url(/static/img/paper.png);
+    color: #333;
 
     h2 {
-      padding: 40px 0 20px;
-      font-size: 1.4em;
+      padding: 40px 0 15px;
+      font-size: 1.6em;
     }
 
     p {
       padding: 0 0 40px;
+      letter-spacing: -1;
     }
 
     .input-box {
@@ -38,6 +45,7 @@
       background: #fff;
       padding: 15px;
       width: 80%;
+      margin: 100px 0 0;
       border-radius: 5px;
       font-family: "GmarketSansMedium";
     }
