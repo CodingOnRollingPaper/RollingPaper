@@ -50,7 +50,7 @@
         </div>
         <div class="postBoxDetail">
           <div class="postIdDetail">
-            📩 No. <%= data[i].dataValues.postId %> 번째 마음
+            📩 <%= data[i].dataValues.postId %> 번째 마음
           </div>
           <div
             class="postContentDetail Content<%= data[i].dataValues.postId %>"
@@ -62,7 +62,9 @@
           <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
             수정
           </button>
-          <button onclick="deleteBtn('<%= data[i].dataValues.postId %>')">삭제</button>
+          <button onclick="deleteBtn('<%= data[i].dataValues.postId %>')">
+            삭제
+          </button>
         </div>
       </div>
 
@@ -141,7 +143,7 @@
             postPw: submitPw.value,
           },
         }).then((res) => {
-           window.location.reload();
+          window.location.reload();
         });
         submitContent.value = "";
         submitPw.value = "";
