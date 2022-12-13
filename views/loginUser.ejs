@@ -5,10 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login user</title>
+    <link
+      rel="shortcut icon"
+      href="/static/img/favicon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="/static/css/reset.css" />
     <link rel="stylesheet" href="/static/css/common.css" />
     <link rel="stylesheet" href="/static/css/loginUser.css" />
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <div id="wrap">
@@ -17,29 +23,24 @@
         <button>LogOut</button>
       </form>
       <% } %>
-      <h1><%= userName %> 님! 환영합니다.</h1>
-      <fieldset>
-        지인들에게 내 롤링페이퍼를 공유하세요!
+      <h1><a href="/"><%= userName %> 님! 환영합니다.</a></h1>
+      <fieldset onclick="clip()">
         <div>
-          <a onclick="clip()" href="/paper/<%= userId %>/<%= userName %>"
+          지인들에게 내 롤링페이퍼를 공유하세요!<br />
+          <a href="/paper/<%= userId %>/<%= userName %>"
             >URL(서버 주소 + /paper/userId)</a
           >
-          <p>링크복사하기</p>
+          <p class="url">링크복사하기</p>
         </div>
       </fieldset>
       <!-- 공유하기 버튼 -->
-      <!-- <h3>공유하기</h3> -->
       <div class="share">
         <button type="button" id="facebook" class="btn">
           페이스북으로 공유하기
         </button>
-        <!-- <button type="button" id="kakao" class="btn">
-          카카오톡으로 공유하기
-        </button> -->
-        <a id="kakao" class="btn" href="javascript:shareKakao();">카카오톡</a>
-        <!-- <button type="button" id="insta" class="btn">
-          인스타그램으로 공유하기
-        </button> -->
+        <a id="kakao" class="btn" href="javascript:shareKakao();"
+          >카카오톡으로 공유하기</a
+        >
       </div>
     </div>
     <script src="/static/js/loginUser.js"></script>

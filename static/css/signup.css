@@ -1,0 +1,23 @@
+#wrap a {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+}
+#wrap a img {
+  width: 150px;
+  padding: 40px 0;
+}
+#wrap form {
+  background: url(/static/img/paper.png);
+  color: #333;
+  width: 90%;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 40px;
+  box-sizing: border-box;
+}
+#wrap form h2 {
+  padding-bottom: 20px;
+  font-size: 1.6em;
+  text-align: center;
+}
