@@ -109,6 +109,7 @@ exports.getPaper = (req, res) => {
     where: {
       userId: req.params.userId,
     },
+    order: [["postId", "DESC"]],
   }).then((db_result) => {
     console.log("findAll >>", db_result.length);
     if (db_result.length == 0) {
