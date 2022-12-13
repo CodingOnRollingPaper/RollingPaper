@@ -1,7 +1,7 @@
 const btnShareFb = document.querySelector("#facebook");
 
 btnShareFb.addEventListener("click", () => {
-  const pageUrl = "news.v.daum.net/v/20220319120213003";
+  const pageUrl = document.querySelector("#url").href;
   window.open(`http://www.facebook.com/sharer/sharer.php?u=${pageUrl}`);
 });
 
@@ -16,10 +16,10 @@ function shareKakao() {
     content: {
       title: "마음푸쉬", // 보여질 제목
       description: "당신의 마음을 전달해주세요", // 보여질 설명
-      imageUrl: "http://localhost:8000", // 콘텐츠 URL
+      imageUrl: `/paper/<%= userId %>/<%= userName %>`, // 콘텐츠 URL
       link: {
-        mobileWebUrl: "http://localhost:8000",
-        webUrl: "http://localhost:8000",
+        mobileWebUrl: `/paper/<%= userId %>/<%= userName %>`,
+        webUrl: `/paper/<%= userId %>/<%= userName %>`,
       },
     },
   });
@@ -34,5 +34,5 @@ function clip() {
   textarea.select();
   document.execCommand("copy");
   document.body.removeChild(textarea);
-  alert("링크가 복사되었습니다. 필요하신 곳에 붙여넣기 하세요!");
+  alert("링크가 복사되었습니다. 친구들에게 공유해보세요");
 }
