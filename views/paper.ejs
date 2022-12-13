@@ -67,7 +67,9 @@
           <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
             수정
           </button>
-          <button onclick="deleteBtn('<%= data[i].dataValues.postId %>')">삭제</button>
+          <button onclick="deleteBtn('<%= data[i].dataValues.postId %>')">
+            삭제
+          </button>
         </div>
       </div>
 
@@ -149,7 +151,7 @@
             postPw: submitPw.value,
           },
         }).then((res) => {
-           window.location.reload();
+          window.location.reload();
         });
         submitContent.value = "";
         submitPw.value = "";
@@ -162,7 +164,6 @@
         let postNum = document.querySelector(`.id${id}`);
         console.log(id);
         console.log(postNum);
-        console.log(postBtn);
         console.log("edit!");
 
         const editBox = `
@@ -253,7 +254,7 @@
 
       const deleteBtn = (id) => {
         let postContentDetail = document.querySelector(`.Content${id}`);
-        let postNum = document.querySelector(`.Btn${id}`);
+        let postNum = document.querySelector(`.id${id}`);
         console.log(id);
         console.log(postContentDetail.textContent.trim());
         console.log(postNum);
