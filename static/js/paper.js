@@ -37,3 +37,20 @@ for (let i = 0; i < postContainer.length; i++) {
     writeImg.classList.toggle("noshow");
   });
 }
+
+// 모달 이외의 부분 누르면 모달창 사라지기
+canvas.addEventListener("click", () => {
+  // 글쓰기 모달 창
+  writeContent.classList.add("noshow");
+  postArea.classList.remove("noshow");
+  writeImg.classList.remove("noshow");
+
+  // postDetail 창
+  for (let i = 0; i < postContainer.length; i++) {
+    if (!postContainerDetail[i].classList.contains("noshow")) {
+      postContainerDetail[i].classList.add("noshow");
+      postArea.classList.remove("noshow");
+      writeImg.classList.remove("noshow");
+    }
+  }
+});
