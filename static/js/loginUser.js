@@ -1,7 +1,8 @@
 const btnShareFb = document.querySelector("#facebook");
+const pageUrl = document.querySelector("#url").href;
 
 btnShareFb.addEventListener("click", () => {
-  const pageUrl = document.querySelector("#url").href;
+  console.log(pageUrl);
   window.open(`http://www.facebook.com/sharer/sharer.php?u=${pageUrl}`);
 });
 
