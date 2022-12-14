@@ -1,7 +1,11 @@
 const idCheckValue = document.forms["signupForm"].userId;
 
-idCheckValue.addEventListener("change", () => {
+idCheckValue.addEventListener("keyup", () => {
   let id = document.forms["signupForm"].userId.value;
+  if (id == "") {
+    CheckAlert.textContent = "아이디를 입력해주세요";
+    signupBtn.disabled = false;
+  }
   axios({
     method: "post",
     url: "/signup/idCheck",

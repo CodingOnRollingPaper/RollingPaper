@@ -26,32 +26,43 @@
       <form name="signupForm" action="/signup" method="post">
         <h2>회원가입</h2>
         <label for="userId">
-          아이디:
-          <input type="text" name="userId" id="userId" required="required" />
+          아이디<br />
+          <input
+            type="text"
+            name="userId"
+            id="userId"
+            required="required"
+            class="input-box"
+            placeholder="아이디를 입력하세요"
+          />
         </label>
-
         <br />
         <div class="idCheckAlert"></div>
+        <br />
         <label for="userPw">
-          비밀번호:
+          비밀번호<br />
           <input
             type="password"
             name="userPw"
             id="userPw"
             required="required"
+            class="input-box"
+            placeholder="****"
           />
         </label>
         <br />
         <label for="userName">
-          닉네임:
+          <br />
+          닉네임<br />
           <input
             type="text"
             name="userName"
             id="userName"
             required="required"
+            class="input-box"
+            placeholder="페이지 내에서 사용될 닉네임입니다! 신중하세요🤔"
           />
         </label>
-        <p>닉네임은 페이지 내에서 사용될 이름입니다! 신중하세요!</p>
         <button class="signupBtn" disabled>회원가입</button>
       </form>
     </div>

@@ -20,15 +20,17 @@
       <header>
         <h1 class="logo">
           <img src="/static/img/logo.png" alt="마음푸쉬로고" />
-          <!-- <a href="#"><img src="../static/img/req.svg" />마음푸쉬</a> -->
         </h1>
         <span>
           전하지 못한 마음이 아직 남아있나요? <br />
           당신의 마음을 글로 적어 상대방 마음에 푸시 해보세요!</span
         >
-        <a href="/login" class="start">롤링페이퍼 시작하기</a>
+        <span class="count">함께 마음을 더한 사용자 <%= userCount %>명</span>
+        <a href="/login" class="start"
+          ><span class="highlight">롤링페이퍼 시작하기</span></a
+        >
       </header>
-      <span class="count">함께 마음을 더한 사용자 <%= userCount %>명</span>
+
       <!-- <article>
         <h2>마음푸쉬하기</h2>
         <h3>다른 이용자들의 롤링페이퍼를 구경해보세요</h3>
