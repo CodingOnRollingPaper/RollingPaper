@@ -9,7 +9,7 @@
   width: 150px;
   padding: 40px;
 }
-#wrap form {
+#wrap .form {
   width: 90%;
   height: 50vh;
   margin: 0 auto;
@@ -18,15 +18,15 @@
   background: url(/static/img/paper.png);
   color: #333;
 }
-#wrap form h2 {
+#wrap .form h2 {
   padding: 40px 0 15px;
   font-size: 1.6em;
 }
-#wrap form p {
+#wrap .form p {
   padding: 0 0 40px;
   letter-spacing: -1;
 }
-#wrap form .input-box {
+#wrap .form .input-box {
   outline: none;
   border: 1px solid gray;
   border-radius: 5px;
@@ -35,7 +35,7 @@
   width: 80%;
   margin: 0px 0px 10px;
 }
-#wrap form .login {
+#wrap .form .login {
   background: #fff;
   padding: 15px;
   width: 80%;
