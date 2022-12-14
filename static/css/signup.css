@@ -17,7 +17,33 @@
   box-sizing: border-box;
 }
 #wrap form h2 {
-  padding-bottom: 20px;
+  padding-bottom: 50px;
   font-size: 1.6em;
   text-align: center;
+}
+#wrap form label {
+  font-family: "Pretendard-Regular";
+  padding: 3px 0;
+}
+#wrap form .idCheckAlert {
+  font-size: 0.9em;
+  color: blue;
+}
+#wrap form .input-box {
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  display: inline-block;
+  padding: 15px;
+  width: 90%;
+  margin: 5px 0px 10px;
+  font-family: "Pretendard-Regular";
+}
+#wrap form .signupBtn {
+  background: #fff;
+  padding: 15px;
+  width: 100%;
+  margin: 100px 0 0;
+  border-radius: 5px;
+  font-family: "GmarketSansMedium";
 }

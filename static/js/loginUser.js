@@ -11,7 +11,7 @@ function shareKakao() {
   Kakao.init("0803d9053526c2cce3cb351605e03f1c");
 
   // 카카오링크 버튼 생성
-  Kakao.Link.createDefaultButton({
+  Kakao.Link.sendDefault({
     container: "#kakao", // 카카오공유버튼ID
     objectType: "feed",
     content: {

@@ -24,13 +24,13 @@
       </form>
       <% } %>
       <h1><a href="/"><%= userName %> 님! 환영합니다.</a></h1>
-      <fieldset onclick="clip()">
+      <fieldset>
         <div>
           지인들에게 내 롤링페이퍼를 공유하세요!<br />
-          <a id="url" href="/paper/<%= userId %>/<%= userName %>"
+          <a href="/paper/<%= userId %>/<%= userName %>"
             >URL(서버 주소 + /paper/userId)</a
           >
-          <p class="url">링크복사하기</p>
+          <p id="url" class="url" onclick="clip()">링크복사하기</p>
         </div>
       </fieldset>
       <!-- 공유하기 버튼 -->
