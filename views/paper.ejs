@@ -82,7 +82,7 @@
             class="submitContent"
             type="text"
             name="post"
-            placeholder="전하고 싶은 메세지를 100자 이하로 작성해 주세요"
+            placeholder="전하고 싶은 메세지를 250자 이하로 작성해 주세요"
             maxlength="100"
             required
           ></textarea>
@@ -115,14 +115,16 @@
           <button class="submitGo" onclick="createPost()">입력</button>
         </div>
       </div>
-      <% if (userSession && userSession.userName === userName) { %>
-      <a>공유하기</a>
-      <% } else { %>
-      <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
-      <div class="writeImg" onclick="show()">
-        <img src="/static/img/writing.png" alt="작성하기" />
+      <div class="shareBox">
+        <% if (userSession && userSession.userName === userName) { %>
+        <a class="share">공유하기</a>
+        <% } else { %>
+        <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
+        <div class="share writeImg" onclick="show()">
+          <img src="/static/img/writing.png" alt="작성하기" />
+        </div>
+        <% } %>
       </div>
-      <% } %>
     </div>
     <script>
       let submitGo = document.querySelector(".submitGo");
@@ -136,6 +138,16 @@
           return submitContent.focus();
         } else if (!submitPw.checkValidity()) {
           return submitPw.focus();
+        }
+        // 수정 250자 이하 검사
+        else if (submitContent.value.length > 250) {
+          alert("글자수는 250자 이하!");
+          return;
+        }
+        // 수정 빈값 입력 안됨
+        else if (submitContent.value.trim().length < 1) {
+          alert("내용을 입력해 주세요!");
+          return;
         }
         console.log(submitContent.value, submitPw.value);
         axios({

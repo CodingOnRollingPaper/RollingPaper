@@ -141,7 +141,7 @@ body {
   color: white;
 }
 .postContainerDetail .postContentDetailEdit {
-  width: 250px;
+  width: 90%;
   height: 250px;
   overflow: scroll;
   text-align: start;

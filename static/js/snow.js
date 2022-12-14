@@ -14,13 +14,12 @@ var flakes = [],
   canvas = document.getElementById("canvas"),
   ctx = canvas.getContext("2d"),
   //눈 갯수 조절
-  flakeCount = 800,
+  flakeCount = 200,
   mX = -100,
   mY = -100;
-
-//  const wrap = document.querySelector("#wrap");
-
-canvas.width = window.innerWidth;
+//수정
+const wrap = document.querySelector("#wrap");
+canvas.width = wrap.clientWidth;
 canvas.height = window.innerHeight;
 
 function snow() {
