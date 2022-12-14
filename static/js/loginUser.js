@@ -19,8 +19,8 @@ function shareKakao() {
       description: "당신의 마음을 전달해주세요", // 보여질 설명
       imageUrl: pageUrl, // 콘텐츠 URL
       link: {
-        mobileWebUrl: `localhost:8000/paper/<%= userId %>/<%= userName %>`,
-        webUrl: `localhost:8000/paper/<%= userId %>/<%= userName %>`,
+        mobileWebUrl: pageUrl,
+        webUrl: pageUrl,
       },
     },
   });
@@ -30,7 +30,7 @@ function clip() {
   var url = "";
   var textarea = document.createElement("textarea");
   document.body.appendChild(textarea);
-  url = "window.location.href";
+  url = pageUrl;
   textarea.value = url;
   textarea.select();
   document.execCommand("copy");
