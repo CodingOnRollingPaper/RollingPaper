@@ -11,16 +11,16 @@ function shareKakao() {
   Kakao.init("0803d9053526c2cce3cb351605e03f1c");
 
   // 카카오링크 버튼 생성
-  Kakao.Link.sendDefault({
+  Kakao.Link.createDefaultButton({
     container: "#kakao", // 카카오공유버튼ID
     objectType: "feed",
     content: {
       title: "마음푸쉬", // 보여질 제목
       description: "당신의 마음을 전달해주세요", // 보여질 설명
-      imageUrl: pageUrl, // 콘텐츠 URL
+      imageUrl: `/paper/<%= userId %>/<%= userName %>`, // 콘텐츠 URL
       link: {
-        mobileWebUrl: pageUrl,
-        webUrl: pageUrl,
+        mobileWebUrl: `/paper/<%= userId %>/<%= userName %>`,
+        webUrl: `/paper/<%= userId %>/<%= userName %>`,
       },
     },
   });
@@ -30,7 +30,7 @@ function clip() {
   var url = "";
   var textarea = document.createElement("textarea");
   document.body.appendChild(textarea);
-  url = pageUrl;
+  url = "window.location.href";
   textarea.value = url;
   textarea.select();
   document.execCommand("copy");
