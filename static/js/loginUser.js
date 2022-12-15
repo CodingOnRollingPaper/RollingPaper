@@ -17,10 +17,10 @@ function shareKakao() {
     content: {
       title: "마음푸쉬", // 보여질 제목
       description: "당신의 마음을 전달해주세요", // 보여질 설명
-      imageUrl: `/paper/<%= userId %>/<%= userName %>`, // 콘텐츠 URL
+      imageUrl: `/static/img/favicon.png`, // 콘텐츠 URL
       link: {
-        mobileWebUrl: `/paper/<%= userId %>/<%= userName %>`,
-        webUrl: `/paper/<%= userId %>/<%= userName %>`,
+        mobileWebUrl: pageUrl,
+        webUrl: pageUrl,
       },
     },
   });
@@ -30,7 +30,7 @@ function clip() {
   var url = "";
   var textarea = document.createElement("textarea");
   document.body.appendChild(textarea);
-  url = "window.location.href";
+  url = pageUrl;
   textarea.value = url;
   textarea.select();
   document.execCommand("copy");
