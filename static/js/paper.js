@@ -60,3 +60,20 @@ for (let i = 0; i < postContainer.length; i++) {
 //     }
 //   }
 // });
+
+function copyUrl() {
+  let currentUrl = window.document.location.href;
+
+  let t = document.createElement("textarea");
+  document.body.appendChild(t);
+  t.value = currentUrl;
+  t.select();
+  document.execCommand("copy");
+  document.body.removeChild(t);
+
+  Swal.fire(
+    "링크가 복사되었습니다!",
+    "친구들에게 공유하여 마음을 받아보세요",
+    "success"
+  );
+}

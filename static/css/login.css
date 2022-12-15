@@ -11,7 +11,6 @@
 }
 #wrap .form {
   width: 90%;
-  height: 50vh;
   margin: 0 auto;
   border-radius: 10px;
   text-align: center;
@@ -36,10 +35,10 @@
   margin: 0px 0px 10px;
 }
 #wrap .form .login {
-  background: #fff;
-  padding: 15px;
+  background: url("../img/marker.svg") 50% 0 no-repeat;
+  padding: 30px;
   width: 80%;
-  margin: 100px 0 0;
+  margin: 40px 0;
   border-radius: 5px;
   font-family: "GmarketSansMedium";
 }
