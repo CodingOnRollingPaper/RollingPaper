@@ -40,10 +40,10 @@
   font-family: "Pretendard-Regular";
 }
 #wrap form .signupBtn {
-  background: #fff;
-  padding: 15px;
+  background: url("../img/marker.svg") 50% 0 no-repeat;
+  padding: 40px;
   width: 100%;
-  margin: 100px 0 0;
+  margin: 40px 0 0;
   border-radius: 5px;
   font-family: "GmarketSansMedium";
 }

@@ -24,24 +24,24 @@
       </form>
       <% } %>
       <h1><a href="/"><%= userName %> 님! 환영합니다.</a></h1>
-      <fieldset onclick="clip()">
+      <fieldset>
         <div>
-          지인들에게 내 롤링페이퍼를 공유하세요!<br />
-          <a id="url" href="/paper/<%= userId %>/<%= userName %>"
-            >URL(서버 주소 + /paper/userId)</a
-          >
-          <p class="url">링크복사하기</p>
+          <a id="url" href="/paper/<%= userId %>/<%= userName %>">
+            지인들에게<br />내 롤링페이퍼를 공유하세요!<br />
+            NEXT ->
+          </a>
+          <p onclick="clip()" class="url">Click!<br />링크복사하기</p>
+        </div>
+        <!-- 공유하기 버튼 -->
+        <div class="share">
+          <button type="button" id="facebook" class="btn">
+            <span class="highlight">페이스북으로 공유하기</span>
+          </button>
+          <a id="kakao" class="btn" href="javascript:shareKakao();"
+            ><span class="highlight"> 카카오톡으로 공유하기</span>
+          </a>
         </div>
       </fieldset>
-      <!-- 공유하기 버튼 -->
-      <div class="share">
-        <button type="button" id="facebook" class="btn">
-          페이스북으로 공유하기
-        </button>
-        <a id="kakao" class="btn" href="javascript:shareKakao();"
-          >카카오톡으로 공유하기</a
-        >
-      </div>
     </div>
     <script src="/static/js/loginUser.js"></script>
   </body>
