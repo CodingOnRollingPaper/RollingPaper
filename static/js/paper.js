@@ -14,6 +14,8 @@ const share = document.querySelector(".share");
 const show = () => {
   writeContent.classList.toggle("noshow");
   postArea.classList.toggle("noshow");
+  submitContent.value = "";
+  submitPw.value = "";
 };
 
 // postDetail 모달 띄우기
