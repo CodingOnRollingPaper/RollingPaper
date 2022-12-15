@@ -8,6 +8,7 @@ const postContainerDetailEdit = document.querySelectorAll(
   ".postContainerDetailEdit"
 );
 const closeDetail = document.querySelectorAll(".closeDetail");
+const closeDetailEdit = document.querySelector(".closeDetailEdit");
 const share = document.querySelector(".share");
 
 const show = () => {
@@ -47,7 +48,7 @@ for (let i = 0; i < postContainer.length; i++) {
 //   // 글쓰기 모달 창
 //   writeContent.classList.add("noshow");
 //   postArea.classList.remove("noshow");
-//   writeImg.classList.remove("noshow");
+//   share.classList.remove("noshow");
 
 //   // postDetail 창
 //   for (let i = 0; i < postContainer.length; i++) {
@@ -55,7 +56,7 @@ for (let i = 0; i < postContainer.length; i++) {
 //       postContainerDetail[i].classList.add("noshow");
 //       postContainerDetailEdit[i].classList.add("noshow");
 //       postArea.classList.remove("noshow");
-//       writeImg.classList.remove("noshow");
+//       share.classList.remove("noshow");
 //     }
 //   }
 // });
