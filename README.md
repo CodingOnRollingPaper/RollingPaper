@@ -95,9 +95,10 @@
 
 ## 개발 도구 및 환경
 
-<img width="200" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198163904-9988bbdc-2fc0-4dfb-afa7-a93e1ada7cd1.png"><img width="240" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198163978-9f847f7c-b673-4727-9164-b10fe7ef24fe.png">
-<img width="200" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198164009-44aef3a7-010f-418e-886e-00d6f3bfd34e.png">
-<img width="180" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198164026-cc165368-c75b-4a05-96bb-07af332a6da7.png">
+<img width="100" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198163904-9988bbdc-2fc0-4dfb-afa7-a93e1ada7cd1.png"><img width="120" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198163978-9f847f7c-b673-4727-9164-b10fe7ef24fe.png">
+<img width="100" alt=%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png">
+<img width="100" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198164009-44aef3a7-010f-418e-886e-00d6f3bfd34e.png">
+<img width="90" alt="%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2022-10-14_%EC%98%A4%ED%9B%84_6 01 40" src="https://user-images.githubusercontent.com/100466973/198164026-cc165368-c75b-4a05-96bb-07af332a6da7.png">
 
 <br>
 
