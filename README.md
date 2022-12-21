@@ -18,7 +18,6 @@ Https : [https://github.com/CodingOnRollingPaper/RollingPaper](https://github.co
 ## 서비스 이름
 
 
-**D**ice + Ci**nema** ⇒ **D.NEMA**
 
 
 ## 타겟층
