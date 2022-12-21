@@ -92,18 +92,9 @@ Https : [https://github.com/CodingOnRollingPaper/RollingPaper](https://github.co
 
 **조원 개별 코드 설명**
 
-[Jinyoung](https://www.notion.so/Jinyoung-580e63f790c147e3a9a859698a243c9d)
-
-[Jaeran](https://www.notion.so/Jaeran-95f87342622440a4af03a62b86b41f44)
-
-[Jung Ho](https://www.notion.so/Jung-Ho-0159d9fb2e274e3289b587e4f68450a0)
-
-[Hyuna](https://www.notion.so/Hyuna-eb23e3849bf649a9953bb4c8f5170bdb)
-
 
 ### **회고** 
 
-[D.NEMA 프로젝트를 마치며,](https://www.notion.so/72ed98bcdc654d5eb7e00bd93e74d97e?v=7c0b3bacfb8b483186554ae5c78dd792)
 
 ### **아쉬운점**
 
