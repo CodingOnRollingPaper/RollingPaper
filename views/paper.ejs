@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/static/css/paper.css" />
     <!-- axios cdn -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <div id="wrap">
@@ -29,7 +30,7 @@
         <h1><%= userName %>님에게 온 마음</h1>
         <div class="userId"><%= userId %></div>
         <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
-      </div>
+
       <!-- 편지 목록 -->
       <div class="postArea">
         <% for (let i = 0; i < data.length; i++) { %>
@@ -41,6 +42,7 @@
         </div>
         <% } %>
       </div>
+      <canvas id="canvas"> </canvas>
 
       <!-- 편지 디테일 모달창 -->
       <% for (let i = 0; i < data.length; i++) { %>
@@ -50,23 +52,30 @@
         <div>
           <div class="closeDetail">X</div>
         </div>
-        <div class="postBoxDetail">
-          <div class="postIdDetail">
-            📩 <%= data[i].dataValues.postId %> 번째 마음
+        <div class="postBoxDetailContent">
+          <div class="postBoxDetail">
+            <div class="postIdDetail">
+              📩 <%= data[i].dataValues.postId %> 번째 마음
+            </div>
+            <div
+              class="postContentDetail Content<%= data[i].dataValues.postId %>"
+            >
+              <%= data[i].dataValues.postContent %>
+            </div>
           </div>
-          <div
-            class="postContentDetail Content<%= data[i].dataValues.postId %>"
-          >
-            <%= data[i].dataValues.postContent %>
+          <% if (userSession && userSession.userName === userName) { %>
+          <div class="noshow"></div>
+          <% } else { %>
+          <div class="postBtn id<%= data[i].dataValues.postId %>">
+            <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
+              수정
+            </button>
+            <button onclick="deleteBtn('<%= data[i].dataValues.postId %>')">
+              삭제
+            </button>
           </div>
-        </div>
-        <div class="postBtn id<%= data[i].dataValues.postId %>">
-          <button onclick="editBtn('<%= data[i].dataValues.postId %>')">
-            수정
-          </button>
-          <button onclick="deleteBtn('<%= data[i].dataValues.postId %>')">
-            삭제
-          </button>
+
+          <% } %>
         </div>
       </div>
 
@@ -117,17 +126,16 @@
           <button class="submitGo" onclick="createPost()">입력</button>
         </div>
       </div>
-      <div class="shareBox">
-        <% if (userSession && userSession.userName === userName) { %>
-        <a class="share">공유하기</a>
-        <% } else { %>
-        <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
-        <div class="share writeImg" onclick="show()">
-          <img src="/static/img/writing.png" alt="작성하기" />
-        </div>
-        <% } %>
+      <% if (userSession && userSession.userName === userName) { %>
+      <p onclick="copyUrl()" class="url">Click!<br />링크복사하기</p>
+      <% } else { %>
+      <!-- 편지 작성 모달 띄우는 이미지 버튼 -->
+      <div class="share writeImg" onclick="show()">
+        <img src="/static/img/writing.png" alt="작성하기" />
       </div>
+      <% } %>
     </div>
+
     <script>
       let submitGo = document.querySelector(".submitGo");
       let submitContent = document.querySelector(".submitContent");
@@ -210,10 +218,10 @@
                 `.Id${dataValues.postId}`
               );
               let postContentDetail = document.querySelector(`.Content${id}`);
+              let postBoxDetailContent = document.querySelector(
+                ".postBoxDetailContent"
+              );
               const editInput = `
-              <div>
-                <div class="closeDetailEdit">X</div>
-              </div>
               <div class="postBoxDetail">
                 <div class="postIdDetail">
                   📩 No. ${dataValues.postId} 번째 마음
@@ -228,7 +236,7 @@
                 </button>
               </div>
             `;
-              postContainerDetail.innerHTML = editInput;
+              postBoxDetailContent.innerHTML = editInput;
             }
           })
           .then((data) => {

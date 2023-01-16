@@ -8,11 +8,14 @@ const postContainerDetailEdit = document.querySelectorAll(
   ".postContainerDetailEdit"
 );
 const closeDetail = document.querySelectorAll(".closeDetail");
+const closeDetailEdit = document.querySelector(".closeDetailEdit");
 const share = document.querySelector(".share");
 
 const show = () => {
   writeContent.classList.toggle("noshow");
   postArea.classList.toggle("noshow");
+  submitContent.value = "";
+  submitPw.value = "";
 };
 
 // postDetail 모달 띄우기
@@ -47,7 +50,7 @@ for (let i = 0; i < postContainer.length; i++) {
 //   // 글쓰기 모달 창
 //   writeContent.classList.add("noshow");
 //   postArea.classList.remove("noshow");
-//   writeImg.classList.remove("noshow");
+//   share.classList.remove("noshow");
 
 //   // postDetail 창
 //   for (let i = 0; i < postContainer.length; i++) {
@@ -55,7 +58,24 @@ for (let i = 0; i < postContainer.length; i++) {
 //       postContainerDetail[i].classList.add("noshow");
 //       postContainerDetailEdit[i].classList.add("noshow");
 //       postArea.classList.remove("noshow");
-//       writeImg.classList.remove("noshow");
+//       share.classList.remove("noshow");
 //     }
 //   }
 // });
+
+function copyUrl() {
+  let currentUrl = window.document.location.href;
+
+  let t = document.createElement("textarea");
+  document.body.appendChild(t);
+  t.value = currentUrl;
+  t.select();
+  document.execCommand("copy");
+  document.body.removeChild(t);
+
+  Swal.fire(
+    "링크가 복사되었습니다!",
+    "친구들에게 공유하여 마음을 받아보세요",
+    "success"
+  );
+}
