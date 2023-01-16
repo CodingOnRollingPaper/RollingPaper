@@ -17,7 +17,9 @@ function shareKakao() {
     content: {
       title: "마음푸쉬", // 보여질 제목
       description: "당신의 마음을 전달해주세요", // 보여질 설명
+
       imageUrl: `/static/img/favicon.png`, // 콘텐츠 URL
+
       link: {
         mobileWebUrl: pageUrl,
         webUrl: pageUrl,

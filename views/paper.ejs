@@ -16,25 +16,21 @@
   <body>
     <div id="wrap">
       <div id="header">
-        <div class="top">
-          <h1 class="logo">
-            <a href="/"
-              ><img src="/static/img/logo.png" alt="마음푸쉬로고"
-            /></a>
-          </h1>
-          <% if (userSession) { %>
-          <form action="/logout" method="post">
-            <div class="logout">
-              <button class="logout-button">
-                <%= userSession.userName %>님, 로그아웃하기
-              </button>
-            </div>
-          </form>
-          <% } %>
-        </div>
-      </div>
-      <h2><%= userName %>님에게 온 마음</h2>
-      <div class="userId"><%= userId %></div>
+        <% if (userSession) { %>
+        <form action="/logout" method="post">
+          <div class="logout">
+            <button style="color: white">
+              <%= userSession.userName %>님 LogOut
+            </button>
+          </div>
+        </form>
+        <% } %>
+        <canvas id="canvas"> </canvas>
+
+        <h1><%= userName %>님에게 온 마음</h1>
+        <div class="userId"><%= userId %></div>
+        <!-- class='userId' display none 처리 부탁합니다. => 완료 -->
+
       <!-- 편지 목록 -->
       <div class="postArea">
         <% for (let i = 0; i < data.length; i++) { %>
