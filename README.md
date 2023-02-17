@@ -9,7 +9,7 @@
 
 <br>
 
-> Https : [https://github.com/CodingOnRollingPaper/RollingPaper](https://github.com/CodingOnRollingPaper/RollingPaper)
+> Https : [https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92](https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92)
 
 
 
