@@ -9,7 +9,8 @@
 
 <br>
 
-> Https : [https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92](https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92)
+> Https : http://54.253.65.3:8000/
+> 노션 [https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92](https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92)
 
 
 
