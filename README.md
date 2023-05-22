@@ -42,6 +42,10 @@ Back-end 오성인 조부희**
 
 ## ⚙️ 주요기능
  - 로그인 / 회원가입
+ <br />
+ 
+ ![signup:signin](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/9a26fa0c-07b3-4d9e-84b7-76e8acb54090)
+
  - 익명의 글 CRUD
  - 작성자만 글을 수정, 삭제할 수 있게 글 작성 시 비밀번호 설정 기능
  - 링크 복사 및 공유
