@@ -21,6 +21,7 @@ Back-end 오성인 조부희**
 
 > test ID : test <br />
 > test PW : 1111
+> 글 작성 링크 http://54.253.65.3:8000/paper/test/test
 
 
 
