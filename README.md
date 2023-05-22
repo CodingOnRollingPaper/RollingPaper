@@ -12,11 +12,15 @@ Front-end 김현아 남궁수정 염정호
 <br />
 Back-end 오성인 조부희** 
 
+
+> 노션 : [https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92](https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92)
+
 <br>
 
 > 배포주소 : http://54.253.65.3:8000/
 
-> 노션 : [https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92](https://ausekd.notion.site/eb5cf9cbf7214b418435a1a89b645d92)
+> test ID : test <br />
+> test PW : 1111
 
 
 
@@ -46,6 +50,10 @@ Back-end 오성인 조부희**
  
  ![signup:signin](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/9a26fa0c-07b3-4d9e-84b7-76e8acb54090)
  
+ - 공유 링크 복사
+ <br />
+
+![linkCopy](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/87943a64-6418-4372-a30e-20f75722ecda)
  
  - 글 읽기
  <br />
