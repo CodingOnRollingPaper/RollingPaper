@@ -46,7 +46,19 @@ Back-end 오성인 조부희**
  
  ![signup:signin](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/9a26fa0c-07b3-4d9e-84b7-76e8acb54090)
 
- - 익명의 글 CRUD
- - 작성자만 글을 수정, 삭제할 수 있게 글 작성 시 비밀번호 설정 기능
- - 링크 복사 및 공유
+ - 글 작성
+ <br />
+ 
+![2](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/5d112bd3-ebd2-42fa-b875-f5d452029f30)
+
+- 글 수정
+ <br />
+
+![3](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/b6eca099-dece-45d6-9bf9-8c0af1b2f587)
+
+-글 삭제
+ <br />
+
+![4](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/1f57277a-366f-45e4-a110-7ecb33a1223e)
+
 
