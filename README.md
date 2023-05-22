@@ -45,6 +45,12 @@ Back-end 오성인 조부희**
  <br />
  
  ![signup:signin](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/9a26fa0c-07b3-4d9e-84b7-76e8acb54090)
+ 
+ 
+ - 글 읽기
+ <br />
+ 
+ ![read](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/fc9e3fac-84b2-412a-a97d-bdd44cbb319a)
 
  - 글 작성
  <br />
@@ -56,7 +62,7 @@ Back-end 오성인 조부희**
 
 ![3](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/b6eca099-dece-45d6-9bf9-8c0af1b2f587)
 
--글 삭제
+- 글 삭제
  <br />
 
 ![4](https://github.com/CodingOnRollingPaper/RollingPaper/assets/88977955/1f57277a-366f-45e4-a110-7ecb33a1223e)
