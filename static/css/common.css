@@ -18,7 +18,6 @@ body {
   min-width: 320px;
   max-width: 480px;
   min-height: 100vh;
-  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   margin: 0 auto;
