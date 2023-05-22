@@ -132,6 +132,11 @@ h2 {
   }
 }
 
+.move-signin {
+  border-bottom: 1px solid white;
+  z-index: 1000;
+}
+
 // 편지 디테일 모달 창
 .postContainerDetail {
   background-color: $color-white;
@@ -180,8 +185,6 @@ h2 {
   }
 
   .editPw {
-    // width: 90%;
-    // min-width: 300px;
     height: 10px;
     resize: none;
     margin: 5px 0;
