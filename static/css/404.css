@@ -1,0 +1,20 @@
+.logo {
+  text-align: center;
+}
+.logo img {
+  width: 200px;
+  margin: 30px 0;
+}
+
+.error-box {
+  text-align: center;
+}
+.error-box h2 {
+  font-size: 2rem;
+}
+.error-box p {
+  margin: 10px 0 20px 0;
+}
+.error-box a {
+  border-bottom: 2px solid white;
+}
