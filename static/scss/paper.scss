@@ -132,6 +132,11 @@ h2 {
   }
 }
 
+.move-signin {
+  border-bottom: 1px solid white;
+  z-index: 999;
+}
+
 // 편지 디테일 모달 창
 .postContainerDetail {
   background-color: $color-white;
@@ -171,7 +176,7 @@ h2 {
 
   .postContentDetailEdit {
     width: 90%;
-    height: 250px;
+    height: 200px;
     overflow: scroll;
     text-align: start;
     margin-top: 20px;
@@ -179,9 +184,17 @@ h2 {
     padding: 10px;
   }
 
+  .editBtn {
+    button {
+      margin: 0 10px;
+      border: 1px solid $color-black;
+      padding: 5px;
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+
   .editPw {
-    // width: 90%;
-    // min-width: 300px;
     height: 10px;
     resize: none;
     margin: 5px 0;
@@ -227,7 +240,7 @@ h2 {
 }
 
 /* emoticon 이모티콘 */
-.writeContent .writeArea .emoticon-list {
+.emoticon-list {
   width: 90%;
   min-width: 300px;
   overflow: scroll;
@@ -236,10 +249,13 @@ h2 {
   height: 50px;
   line-height: auto;
 }
+
 .emoticon-list::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera*/
 }
-.writeContent .writeArea .emoticon-list .emoticon {
+
+.emoticon-list .emoticon,
+.emoticon-list .emoticon-edit {
   display: inline;
   background-color: gainsboro;
   border-radius: 10px;

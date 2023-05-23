@@ -27,6 +27,7 @@
 #wrap fieldset .url {
   padding: 50px;
   background: url("../img/marker.svg") 50% 0 no-repeat;
+  cursor: pointer;
 }
 #wrap .share {
   display: flex;

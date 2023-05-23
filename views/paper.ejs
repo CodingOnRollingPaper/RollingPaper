@@ -40,7 +40,7 @@
         <% for (let i = 0; i < data.length; i++) { %>
         <div class="postContainer">
           <div class="postBox textArea">
-            <div class="postId">📩 No. <%= data[i].dataValues.postId %></div>
+            <span class="postId">📩 No. <%= data[i].dataValues.postId %></span>
             <div class="postContent"><%= data[i].dataValues.postContent %></div>
           </div>
         </div>
@@ -54,13 +54,13 @@
         class="postContainerDetail noshow Id<%= data[i].dataValues.postId %>"
       >
         <div>
-          <div class="closeDetail">X</div>
+          <span class="closeDetail">X</span>
         </div>
         <div class="postBoxDetailContent">
           <div class="postBoxDetail">
-            <div class="postIdDetail">
+            <span class="postIdDetail">
               📩 <%= data[i].dataValues.postId %> 번째 마음
-            </div>
+            </span>
             <div
               class="postContentDetail Content<%= data[i].dataValues.postId %>"
             >
@@ -119,7 +119,6 @@
             <li class="emoticon emoticon-14">◕‿◕✿</li>
             <li class="emoticon emoticon-15">＿φ(￣ー￣ )</li>
           </ul>
-
           <input
             class="submitPw"
             type="password"
@@ -137,6 +136,7 @@
       <div class="share writeImg" onclick="show()">
         <img src="/static/img/writing.png" alt="작성하기" />
       </div>
+      <a href="/login" class="move-signin">내 롤링페이퍼 만들기</a>
       <% } %>
     </div>
 
@@ -234,7 +234,7 @@
                   class="postContentDetailEdit Content${dataValues.postId}"
                 >${dataValues.postContent}</textarea>
               </div>
-              <div class="postBtn Btn${dataValues.postId}">
+              <div class="editBtn Btn${dataValues.postId}">
                 <button onclick="editPost('${dataValues.postId}')">
                   수정
                 </button>
@@ -244,7 +244,6 @@
             }
           })
           .then((data) => {
-            // console.log(data);
             const closeDetailEdit = document.querySelector(".closeDetailEdit");
             console.log(closeDetailEdit);
             for (let i = 0; i < postContainer.length; i++) {
