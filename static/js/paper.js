@@ -10,6 +10,7 @@ const postContainerDetailEdit = document.querySelectorAll(
 const closeDetail = document.querySelectorAll(".closeDetail");
 const closeDetailEdit = document.querySelector(".closeDetailEdit");
 const share = document.querySelector(".share");
+const moveSignin = document.querySelector(".move-signin");
 
 const show = () => {
   writeContent.classList.toggle("noshow");
@@ -24,6 +25,7 @@ for (let i = 0; i < postContainer.length; i++) {
     postContainerDetail[i].classList.toggle("noshow");
     postArea.classList.toggle("noshow");
     share.classList.toggle("noshow");
+    moveSignin.classList.toggle("noshow");
   });
 }
 
@@ -44,24 +46,6 @@ for (let i = 0; i < postContainer.length; i++) {
     window.location.reload();
   });
 }
-
-// 모달 이외의 부분 누르면 모달창 사라지기
-// canvas.addEventListener("click", () => {
-//   // 글쓰기 모달 창
-//   writeContent.classList.add("noshow");
-//   postArea.classList.remove("noshow");
-//   share.classList.remove("noshow");
-
-//   // postDetail 창
-//   for (let i = 0; i < postContainer.length; i++) {
-//     if (!postContainerDetail[i].classList.contains("noshow")) {
-//       postContainerDetail[i].classList.add("noshow");
-//       postContainerDetailEdit[i].classList.add("noshow");
-//       postArea.classList.remove("noshow");
-//       share.classList.remove("noshow");
-//     }
-//   }
-// });
 
 function copyUrl() {
   let currentUrl = window.document.location.href;
