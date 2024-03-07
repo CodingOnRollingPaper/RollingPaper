@@ -17,14 +17,6 @@ Back-end 오성인 조부희**
 
 <br>
 
-> 배포주소 : http://54.253.65.3:8000/
-
-> test ID : test <br />
-> test PW : 1111 <br />
-> 글 작성 링크 http://54.253.65.3:8000/paper/test/test
-
-
-
 ## ⚒️ 개발 도구 및 환경
 
 <div>
